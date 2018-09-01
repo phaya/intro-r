@@ -1,0 +1,199 @@
+---
+title: "Vectores"
+author: "Pablo Haya"
+date: "8/25/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Vectores
+
+Permiten almacenar secuencias de valores en una misma variable. La función `c()` permite combinar varios datos para crear un vector. 
+
+```{r, echo = TRUE}
+v <- c(1, 1, 2, 3, 5, 8)
+v
+```
+---
+
+Es importante mencionar que no es posible almacenar distinos tipos de datos en un mismo vector. En caso de crear un vector datos de distinto tipo, automáticamente se convierten para que todos compartan el mismo tipo. 
+
+```{r, echo = TRUE}
+v <- c(1, "uno", 2, "tres", 5, "ocho")
+v
+v <- c(FALSE, TRUE, 2, 3, 5, 8)
+v
+```
+
+---
+
+`c()` permite también combinar dos o más vectores en un sólo vector
+
+```{r, echo = TRUE}
+v1 <- c(1, 2)
+v2 <- c(3, 4)
+v3 <- c(v1, v2)
+v3
+```
+
+## Secuencias
+
+Otra función que permite crear un vector es `seq()` que crea una secuencia de números. Esta función, en su versión más simple, se puede escribir también como `desde:hasta` 
+
+```{r, echo = TRUE}
+seq(0, 10) 
+0:10
+```
+
+---
+
+```{r, echo = TRUE}
+seq(0, 10, by=2)
+seq(0, 1, by=0.1)
+```
+
+## Repeticiones
+
+De manera similar la función `rep()` que replica un elemento tantas veces como le digamos.
+
+```{r, echo = TRUE}
+rep(10, 5) 
+rep(1:4, 2)
+rep(1:4, each = 2) 
+```
+
+## Indexación
+
+Exsiten múltiples maneras de poder acceser a los elementos de vector. La más sencilla es mediente su posición indicada entre corchetes `ej. vector[2]`.
+
+```{r, echo = TRUE}
+v <- c(1, 2, 4, 8, 16, 32) 
+v[1]
+v[1] + v[2]
+v[6]
+```
+
+---
+
+La función `length()` nos permite obtener la longitud de un vector, la cual concide con la última posición del mismo.
+
+```{r, echo = TRUE}
+v <- c(1, 2, 4, 8, 16, 32) 
+length(v)
+v[length(v)]
+```
+
+## Nombres
+
+Es posible asignar nombres a cada posición del vector (`names()`), de manera que luego se puede emplear el nombre, en vez de la posición, para referenciar a un elemento.
+
+```{r, echo = TRUE}
+v <- c(34, 23, 12, 14, 23)
+names(v) <- c("L", "M", "X", "J", "V")
+v
+v["X"]
+```
+
+## Subconjuntos
+
+A partir de un vector es posible acceder a un subconjunto del mismo indicando el vector de posiciones que queremos obtener.  
+
+```{r, echo = TRUE}
+v <- c(10, 30, 50, 70, 90) 
+v[c(1, 3, 5)]
+v[2:3]
+```
+
+---
+
+Se puede indicar que posiciones **no** queremos mediante índices negativos.
+
+```{r, echo = TRUE}
+v <- c(10, 30, 50, 70, 90) 
+v[c(-1, -3, -5)]
+```
+
+---
+
+Al igual que veíamos antes, si las posiciones tienen nombres se pueden acceder mediante un vector de nombres a varias posiciones
+
+```{r, echo = TRUE}
+v <- c(34, 23, 12, 14, 23)
+names(v) <- c("L", "M", "X", "J", "V")
+v[c("M", "J")]
+```
+
+---
+
+Finalmente, se puede especificar un vector de valores boolenos para indicar qué elementos queremos y cuales no.
+
+```{r, echo = TRUE}
+v <- c(10, 30, 50, 70, 90) 
+v[c(FALSE, TRUE, FALSE, TRUE, FALSE)]
+```
+
+## Vectorización de operaciones
+
+Las operaciones que hagamos entre dos vectores se realizan elemento a elemento
+
+```{r, echo = TRUE}
+v1 <- c(1, 2, 3, 4, 5) 
+v2 <- c(10, 20, 30, 40, 50)
+v1 + v2
+v1 * v2
+```
+
+---
+
+Si los vectores tienen distinta longitud se rellena el vector de menor longitud repetiendo sus elementos hasta llegar al tamaño del otro vector.
+
+```{r, echo = TRUE}
+v1 <- c(1, 2) 
+v2 <- c(10, 20, 30, 40, 50, 60)
+# v1 se amplica a c(1, 2, 1, 2, 1, 2) 
+v1 * v2
+```
+
+---
+
+En particular, si operamos entre un número y vector, el resultado es realizar la operación de cada elemento del vector con el número.
+
+```{r, echo = TRUE}
+x <- 2
+v <- c(1, 2, 3, 4, 5, 6)
+v ** x
+```
+
+---
+
+Esto también funciona como operadores de comparación siendo el resultado un vector de valores lógicos.
+
+```{r, echo = TRUE}
+v <- c(1, 2, 3, 4, 5, 6)
+v < 4
+```
+
+---
+
+Lo cual es bastante interesante ya que se puede emplear el vector resultante de la comparación para extraer el subconjunt de valores del vector original que cumplen cierta condición.
+
+```{r, echo = TRUE}
+v <- c(1, 2, 3, 4, 5, 6)
+# recordar que v < 4 devuelve c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)
+v[v < 4]
+v[c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)]
+```
+
+## Funciones que resumen un vector
+
+Existen funciones que emplean todos los elementos de un vector para obtener un único valor (ej. `sum`, `mean`, `min`, `max`...)
+
+```{r cars, echo = TRUE}
+v <- c(1, 2, 3, 4, 5, 6)
+sum(v)
+sum(1:6)
+mean(v)
+```

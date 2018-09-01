@@ -1,0 +1,165 @@
+---
+title: "Data Frames"
+author: "Pablo Haya"
+date: "9/1/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Data Frame
+
+Un _data frame_ es una tabla de datos formada por columnas que pueden ser distinto tipo. Cada columna tiene asociado un nombre asociado. La función `data.frame()` permite especifar los vectores que formarán las columnas, y el nombre de cada una de ellas.
+
+```{r, echo = TRUE}
+df <- data.frame(nombre=c("Pedro", "Ana", "Mara", "Juan"),
+                 edad=c(34, 35, 23, 54),
+                 genero=(c("M","F","F", "M")))
+df
+```
+
+---
+
+Como ya hemos visto, se puede utilizar la función `str()` para obtener un resumen del contenido almacenado. 
+
+```{r, echo = TRUE}
+str(df)
+```
+
+También se puede emplear la función `dim()` si sólo se necesita saber el número de filas y columnas que tiene la tabla.
+
+```{r, echo = TRUE}
+dim(df)
+```
+
+---
+
+Por defecto, las cadenas de caracteres se convierten en factores. Si se quiere deshabilitar este comportamiento es preciso emplear el parámetro `stringAsFactors=FALSE`, e indicar explícitamente que columnas son factores.
+
+```{r, echo = TRUE}
+df <- data.frame(nombre=c("Pedro", "Ana", "Mara", "Juan"),
+                 edad=c(34, 35, 23, 54),
+                 genero=as.factor(c("M","F","F", "M")),
+                 stringsAsFactors = FALSE)
+str(df)
+```
+
+---
+
+Es habitual que las tablas que se almacenen contenga mucha información, de manera que visualizar todo el contenido, aunque sea de manera parcial, puede ser tedioso. Las funciones `head()` y `tail()` permiten inspeccionar los primeros y últimos elementos de la tabla.
+
+```{r, echo = TRUE}
+data(swiss)
+dim(swiss)
+head(swiss)
+```
+
+## Indexado
+
+Un _data frame_ se indexa de manera similar a un vector añadiendo un índice más poder referenciar tanto la fila como la columna. El siguiente ejemplo obtiene el valor de la celda que identifica por la fila 1 y la columan 2.
+
+```{r, echo = TRUE}
+df[1,2]
+```
+
+---
+
+De la misma manera que los vectores se pueden seleccionar varios elementos con la notación i:j. En el caso de las tablas, se pueden seleccionar varias filas, varias columnas o una subconjunto de ambas.
+
+```{r, echo = TRUE}
+df[1:2, 1:3]
+```
+
+---
+
+Para seleccionar todas las filas, o todas las columnas basta con omitir el índice correspondiente y dejarlo vacío. Así, la siguiente expresión es equivalente a la que se empleo en la anterior transparencia.
+
+```{r, echo = TRUE}
+# mismo resultado que df[1:2,1:3] 
+df[1:2,]
+```
+
+---
+
+Lo mismo pero seleccionando dos columnas:
+
+```{r, echo = TRUE}
+df[,2:3]
+```
+
+---
+
+También es posible emplear un vector para indicar la selección de filas y/o columnas. Esto permite escoger filas/columnas no consecutivas. 
+
+```{r, echo = TRUE}
+df[c(1,4), 1]
+```
+
+---
+
+En el caso de la columnas, se puede sustituir las posiciones por los nombres de las mismas.
+
+```{r, echo = TRUE}
+df[c(1,4), c("edad", "genero")]
+```
+
+---
+
+Si sólo queremos acceder a una columna es más sencillo empleado la siguiente notación (`$nombre_columna`).
+
+```{r, echo = TRUE}
+df$edad
+```
+
+---
+
+Anteriormente empleamos las posiciones de las filas para seleccionar aquellas que quería quedarnos. También se puede emplear un vector con valores booleanos.
+
+```{r, echo = TRUE}
+df[c(FALSE, TRUE, TRUE, FALSE), ]
+```
+
+---
+
+Como la comparación de un vector con un valor hace que obtengamos el valor de la comparación para elemento del vector, podemos emplearlo para seleccionar filas en función de un valor. 
+
+```{r, echo = TRUE}
+df$genero == "F"
+# df$genero == "F" equivalente a df[c(FALSE, TRUE, TRUE, FALSE), ]
+# devuelve todas las filas cuyo genero sea "F"
+df[df$genero == "F", ]
+```
+
+## Ordenación
+
+Se puede cambiar el orden de las filas incluyendo las nuevas posiciones en un vector que indexe la tabla. El siguiente ejemplo invierte el orden de la tabla.
+
+```{r, echo = TRUE}
+df[c(4, 3, 2, 1),]
+```
+
+---
+
+La función `order()` devuelve las posiciones de los elementos para que estén ordenados de mayor a menor.
+
+```{r, echo = TRUE}
+df$edad
+order(df$edad)
+```
+
+---
+
+El resultado de la función `order()` se puede emplear para ordenar las filas de una tabla tomando como criterio de ordenación una columna.
+
+```{r, echo = TRUE}
+df[order(df$edad),]
+```
+
+---
+El parámetro `decreasing` permite establecer el dirección de la ordenación.
+
+```{r, echo = TRUE}
+df[order(df$edad, decreasing = FALSE),]
+```
