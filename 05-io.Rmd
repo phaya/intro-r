@@ -1,0 +1,135 @@
+---
+title: "Leer y escribir datos"
+author: "Pablo Haya"
+date: "9/2/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Leer un archivo CSV
+
+R permite leer los formatos más populares (csv, json, xml...). El formato _CSV_ (comma-separated values) almacena tablas donde cada fila ocupa una línea, y las columnas se separan por comas.
+
+```{r, echo = TRUE}
+library(here)
+df <- read.csv(here("data", "core_dataset.csv"))
+str(df)
+```
+
+---
+
+La función `read.csv()` es equivalente a llamar a la función `read.table()` indicando que la primera fila es la cabecera que contiene el nombre de las variables, y que el separador de celdas es la coma.
+
+```{r, echo = TRUE}
+library(here)
+df <- read.table(here("data", "core_dataset.csv"), header = TRUE, sep = ",")
+str(df)
+```
+
+## Lectura avanzada
+
+El paquete `tidyverse()` incluye funciones mejoradas para importar datos. La función `read_csv()` permite leer un fichero csv siendo más rápida y versatil que la función por defecto. La función `read_delim()` es su versión más genérica.
+
+```{r, echo = TRUE}
+library(tidyverse)
+df <- read_csv(here("data","core_dataset.csv"))
+glimpse(df)
+```
+
+---
+
+La función `read_csv()` devuelve un tipo de datos `tibble` que es una versión mejorada del `data.frame` que viene por defecto.
+
+```{r, echo = TRUE}
+class(df)
+head(df)
+```
+
+## Preparativos
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+glimpse(df)
+```
+
+---
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+colnames(df) <- str_replace_all(colnames(df), "[ /]", "")
+glimpse(df)
+```
+
+---
+
+```{r echo=TRUE}
+date_cols <- c("DOB", "DateofHire", "DateofTermination")
+df[, date_cols] <- map(df[, date_cols], parse_date, "%m/%d/%Y")
+```
+
+---
+
+```{r echo=TRUE}
+fct_cols <- c("State","Zip", "Sex", "MaritalDesc", "CitizenDesc", "HispanicLatino", "RaceDesc", "ReasonForTerm", "EmploymentStatus", "Department", "Position",  "EmployeeSource", "PerformanceScore")
+df[, fct_cols] <- map(df[, fct_cols], factor)
+glimpse(df)
+```
+
+---
+
+```{r echo=FALSE}
+map(df[, fct_cols], table)
+glimpse(df)
+```
+---
+
+Corregimos los valores del género
+
+```{r echo=TRUE}
+df$Sex <- str_replace(df$Sex, "^m", "M")
+df$Sex <- factor(df$Sex)
+
+df$HispanicLatino <- str_replace(df$HispanicLatino, "no", "No")
+df$HispanicLatino <- str_replace(df$HispanicLatino, "yes", "Yes")
+df$HispanicLatino <- factor(df$HispanicLatino)
+```
+
+---
+
+```{r echo=TRUE}
+df$HispanicLatino <- str_replace(df$HispanicLatino, "no", "No")
+df$HispanicLatino <- str_replace(df$HispanicLatino, "yes", "Yes")
+df$HispanicLatino <- factor(df$HispanicLatino)
+```
+
+## Escribir datos
+
+Se pueden emplear para escribir en formato csv las funciones equivalentes `write.csv()` y `write.table()` 
+
+```{r echo=TRUE}
+write.csv(df, file = here("data","core_dataset_clean.csv"))
+```
+
+---
+
+De la misma manera, se pueden emplear las funciones para exportar datos `write_csv()` y `write_deliim()` del paquete `tidyverse`
+
+```{r echo=TRUE}
+write_csv(df,  here("data","core_dataset_clean.csv"))
+```
+
+## Guardar datos binarios
+
+Si se quieren guardar datos de manera temporal es más efectivo emplear la función `save()` que los guarda en binario. Veremos en el siguiente tema como se recupera con la función `load()`.
+
+```{r echo=TRUE}
+save(df, file = here("data","core_dataset_clean.RData"))
+```
+
+## Referencias y recursos online
+
+paquete here: 
+
+cheatsheet
+https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf

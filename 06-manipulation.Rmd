@@ -9,38 +9,13 @@ output: ioslides_presentation
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Preparativos
+# Importamos datos
 
+Empleamos la funcion `load()` para cargar la tabla que habíamos preparado en el tema anterior.
 
-
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-library(tidyverse)
-df <- read_csv("data/core_dataset.csv")
-glimpse(df)
-```
-
----
-
-```{r echo=TRUE, message=FALSE, warning=FALSE}
-library(tidyverse)
-colnames(df) <- str_replace_all(colnames(df), " ", "")
-glimpse(df)
-```
-
----
-
-```{r echo=TRUE}
-library(lubridate)
-date_cols <- c("DOB", "DateofHire", "DateofTermination")
-df[, date_cols] <- lapply(df[, date_cols], mdy)
-```
-
----
-
-```{r echo=TRUE}
-fct_cols <- c("State","Zip", "Sex", "MaritalDesc", "CitizenDesc", "Hispanic/Latino", "RaceDesc", "ReasonForTerm", "EmploymentStatus", "Department", "Position",  "EmployeeSource", "PerformanceScore")
-df[, fct_cols] <- lapply(df[, fct_cols], factor)
-glimpse(df)
+```{r, echo = TRUE}
+library(here)
+load(here("data","core_dataset_clean.RData"))
 ```
 
 ## Filtrar
@@ -67,7 +42,6 @@ Se pueden incluir operadores lógicos para realizar condiciones más complejas.
 filter(df, (MaritalDesc == "Single" | Age < 30) & Sex == "Male")
 ```
 
-
 ## Operador _pipe_
 
 Un operador muy útil que permite encadenar distintas manipulaciones es `%>%`. Este operador índica el flujo de datos de manera que la salida de una operación se emplea como entrada de la siguente.
@@ -84,6 +58,16 @@ El verbo `select()` devuelve una nueva tabla con las columnas seleccionadas.
 df %>% filter(MaritalDesc == "Single") %>% 
        filter(Age < 30) %>%
        select(EmployeeName, State, MaritalDesc, Age)
+```
+
+--
+
+Se puede emplear `contains()` para obtener los columnas que compartan nombre.
+
+```{r cars, echo = TRUE}
+df %>% filter(MaritalDesc == "Single") %>% 
+       filter(Age < 30) %>%
+       select(contains("Name"), State)
 ```
 
 ## Ordenar
@@ -117,6 +101,10 @@ df %>% mutate(Datesofhire = as.Date(Datesofhire, format="%m/%d/%Y")) %>%
        mutate(Days = Sys.Date() - Datesofhire) %>%
        select(Age, Days)
 ```
+
+## Todo Join
+
+
 
 ### Referencias
 
