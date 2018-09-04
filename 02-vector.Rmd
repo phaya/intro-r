@@ -194,6 +194,6 @@ Existen funciones que emplean todos los elementos de un vector para obtener un Ã
 ```{r cars, echo = TRUE}
 v <- c(1, 2, 3, 4, 5, 6)
 sum(v)
-sum(1:6)
+min(1:6)
 mean(v)
 ```
