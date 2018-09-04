@@ -1,0 +1,18 @@
+---
+title: "Preparacion"
+author: "Pablo Haya"
+date: "9/3/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Instalar paquetes
+
+```{r, echo = FALSE}
+packs <- c("here", "tidyverse")
+install.packages(packs)
+```
+
