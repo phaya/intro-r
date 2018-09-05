@@ -139,4 +139,4 @@ help(dunif) # también vale ?dunif
 
 ## Recursos y material
 
-To be completed
+* [Hoja de referencia de R básico](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
