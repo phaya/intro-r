@@ -76,7 +76,7 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 
 ## Temario del curso
 
-* Primeros pasos (<a href="https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/01-basic-r.html" targe="_blank">html</a>)
+* Primeros pasos (<a href="https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/01-basic-r.html" target="_blank">html</a>)
 
 ## Enlaces y material adicional
 
