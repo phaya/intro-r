@@ -33,13 +33,17 @@ Otros lenguajes de programación estadística son SAS, SPSS, ó Stata. Todos ell
 
 En el mundo académico se está convirtiendo en un estándar de-facto para la realización de análisis estadísticos, visualización y difusión de resultados que está desbancando a SPSS.
 
-![](https://i0.wp.com/r4stats.com/wp-content/uploads/2017/06/Fig_2d_ScholarlyImpact2016.png) Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/) en [r4stats.com](http://r4stats.com)
+![](https://i0.wp.com/r4stats.com/wp-content/uploads/2017/06/Fig_2d_ScholarlyImpact2016.png)
+
+Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/) en [r4stats.com](http://r4stats.com)
 
 ------------------------------------------------------------------------
 
 En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes:
 
 ![](https://i1.wp.com/r4stats.com/wp-content/uploads/2017/02/Fig-1c-R-v-SAS-2017-02-18.png)
+
+Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/) en [r4stats.com](http://r4stats.com)
 
 ------------------------------------------------------------------------
 
@@ -80,7 +84,7 @@ Libros, tutoriales y ejemplos
 ### Libros
 
 -   [R for Data Science](http://r4ds.had.co.nz/) referencia básica por el mayor experto actual en `R`.
--   [R in Action](ftp://ftp.micronet-rostov.ru/linux-support/books/programming/R/Kabacoff%20Robert%20I.%20-%20R%20in%20Action%20-%202011.pdf)
+-   [R in Action](ftp://ftp.micronet-rostov.ru/linux-support/books/programming/R/Kabacoff%20Robert%20I.%20-%20R%20in%20Action%20-%202011.pdf) libro del autor del port Quick-R.
 -   [The R Book](https://www.cs.upc.edu/~robert/teaching/estadistica/TheRBook.pdf): todo sobre `R`
 -   [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf): libro fundamental par introducirse al machine learning con `R`.
 
@@ -91,9 +95,9 @@ Libros, tutoriales y ejemplos
 
 ### Cursos
 
--   [R Programming](https://www.coursera.org/learn/r-programming) en Coursera
--   [Introduction to R for Data Science](https://www.edx.org/es/course/introduction-r-data-science) en Edx por Microsoft
--   [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r%5D%20en%20Datacamp)
+-   [R Programming](https://www.coursera.org/learn/r-programming) en Coursera.
+-   [Introduction to R for Data Science](https://www.edx.org/es/course/introduction-r-data-science) en Edx por Microsoft.
+-   [Introduction to R](https://www.datacamp.com/courses/free-introduction-to-r) en Datacamp.
 
 Licencia
 --------

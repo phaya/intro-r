@@ -209,7 +209,7 @@ class(s)</pre>
 
 </article></slide><slide class=""><hgroup><h2>Booleanos o binarios</h2></hgroup><article  id="booleanos-o-binarios">
 
-<p>Otro tipo de datos simple que aparecerá frecuencia es el tipo de datos booleano (<code>logical&#39;) que puede tomar dos valores verdadero</code>TRUE<code>ó</code>FALSE`.</p>
+<p>Otro tipo de datos simple que aparecerá frecuencia es el tipo de datos booleano (<code>logical</code>) que puede tomar dos valores verdadero <code>TRUE</code> ó <code>FALSE</code>.</p>
 
 <p>Las operadores de comparación (<code>&gt;</code>, <code>&lt;</code>, <code>&gt;=</code>, <code>&lt;=</code>, <code>==</code>, <code>!=</code>) devuelven valores booleanos.</p>
 
@@ -220,6 +220,8 @@ class(s)</pre>
 <pre class = 'prettyprint lang-r'>5 &lt;= 5</pre>
 
 <pre >## [1] TRUE</pre>
+
+</article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
 <pre class = 'prettyprint lang-r'>3 == 1</pre>
 
@@ -245,13 +247,21 @@ c &lt;- 6
 discrimante &lt;- sqrt(b**2-4*a*c)
 sol1 &lt;- (-b + discrimante) / (2*a)
 sol2 &lt;- (-b - discrimante) / (2*a)
-sol1</pre>
+cat(sol1, sol2)</pre>
 
-<pre >## [1] 3</pre>
+<pre >## 3 2</pre>
 
-<pre class = 'prettyprint lang-r'>sol2</pre>
+</article></slide><slide class=""><hgroup><h2>Ayuda</h2></hgroup><article  id="ayuda">
 
-<pre >## [1] 2</pre></article></slide>
+<p>En cualquier momento se puede conseguir ayuda sobre cualquier objeto de R con la función <code>help()</code>. También es válido utilizar <code>?</code> antes del nombre del objeto que se quiere consultar.</p>
+
+<pre class = 'prettyprint lang-r'>help(dunif) # también vale ?dunif</pre>
+
+</article></slide><slide class=""><hgroup><h2>Recursos y material</h2></hgroup><article  id="recursos-y-material">
+
+<ul>
+<li><a href='http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf' title=''>Hoja de referencia de R básico</a></li>
+</ul></article></slide>
 
 
   <slide class="backdrop"></slide>
