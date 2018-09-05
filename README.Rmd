@@ -76,7 +76,7 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 
 ## Temario del curso
 
-* Primeros pasos ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/01-basic-r.html))
+* Primeros pasos (<a href="https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/01-basic-r.html" targe="_blank">html</a>)
 
 ## Enlaces y material adicional
 
@@ -93,8 +93,8 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 ### Libros
 
 * [R for Data Science](http://r4ds.had.co.nz/) referencia básica por el mayor experto actual en `R`.
-* [R in Action](ftp://ftp.micronet-rostov.ru/linux-support/books/programming/R/Kabacoff%20Robert%20I.%20-%20R%20in%20Action%20-%202011.pdf) libro del autor del port Quick-R.
-  * [The R Book](https://www.cs.upc.edu/~robert/teaching/estadistica/TheRBook.pdf): todo sobre `R`
+* [R in Action](https://www.manning.com/books/r-in-action) libro del autor del port Quick-R.
+* [The R Book](https://www.cs.upc.edu/~robert/teaching/estadistica/TheRBook.pdf): todo sobre `R`
 * [An Introduction to Statistical Learning](http://www-bcf.usc.edu/~gareth/ISL/ISLR%20First%20Printing.pdf): libro fundamental par introducirse al machine learning con `R`.
   
 ### Ejemplos
