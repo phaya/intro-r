@@ -1,7 +1,6 @@
 ---
 title: "R primeros pasos"
 author: "Pablo Haya"
-date: "8/24/2018"
 output: ioslides_presentation
 ---
 

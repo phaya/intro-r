@@ -1,7 +1,6 @@
 ---
 title: "Preparacion"
 author: "Pablo Haya"
-date: "01/09/2018"
 output: html_document
 ---
 

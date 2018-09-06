@@ -1,7 +1,6 @@
 ---
 title: "Data Frames"
 author: "Pablo Haya"
-date: "01/09/2018"
 output: ioslides_presentation
 ---
 
