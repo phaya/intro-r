@@ -76,14 +76,14 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 
 ## Temario del curso
 
-* Preparacion: instalación y configuración del entorno ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/00-setup.html))
+* Preparacion: instalación y configuración del entorno ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/00-setup.html))
 
 ### Primera parte
 
-* Primeros pasos ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/01-basic-r.html))
-* Vectores ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/02-vector.html))
-* Factores ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/03-factor.html))
-* _Data Frames_ ó tablas ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/04-dataframe.html))
+* Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/01-basic-r.html))
+* Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/02-vector.html))
+* Factores ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/03-factor.html))
+* _Data Frames_ ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/04-dataframe.html))
 
 ## Enlaces y material adicional
 
