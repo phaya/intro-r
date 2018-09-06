@@ -123,7 +123,7 @@ Temario del curso
 -----------------
 
 -   Preparacion: instalación y configuración del entorno
-    ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/00-setup.html)))
+    ([html](https://htmlpreview.github.io/?https://github.com/phaya/intro-r/blob/devel/00-setup.html))
 
 ### Primera parte
 
