@@ -81,7 +81,7 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 ### Primera parte
 
 * Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/01-basic-r.html))
-* Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/02-vector.html))
+* Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/02-vector.html))
 * Factores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/03-factor.html))
 * _Data Frames_ ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/devel/04-dataframe.html))
 

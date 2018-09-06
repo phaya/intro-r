@@ -130,7 +130,7 @@ Temario del curso
 -   Primeros pasos
     ([html](https://cdn.rawgit.com/phaya/intro-r/devel/01-basic-r.html))
 -   Vectores
-    ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/02-vector.html))
+    ([html](https://cdn.rawgit.com/phaya/intro-r/devel/02-vector.html))
 -   Factores
     ([html](https://cdn.rawgit.com/phaya/intro-r/devel/03-factor.html))
 -   *Data Frames* ó tablas
