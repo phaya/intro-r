@@ -1,7 +1,7 @@
 ---
 title: "Factores"
 author: "Pablo Haya"
-date: "8/27/2018"
+date: "01/09/2018"
 output: ioslides_presentation
 ---
 
@@ -11,7 +11,9 @@ knitr::opts_chunk$set(echo = FALSE)
 
 ## Variables categóricas
 
-Una variable es categóríca cuando puede tomar valores de un conjunto finito. Por ejemplo, el género (Masculino/Femenino), el grupo sanguíneno (O, A, B, AB), el estado civil (casado, soltero, divoricado, separado), las Comunidades Autónomas (Galicia, Andalucía, Cantabria...), o distintos tipos de departamento (RRHH, Marketing, Comerical, Administración...). 
+Una variable es categóríca cuando puede tomar valores de un conjunto finito. 
+
+Por ejemplo, el género (Masculino/Femenino), el grupo sanguíneno (O, A, B, AB), el estado civil (casado, soltero, divoricado, separado), las Comunidades Autónomas (Galicia, Andalucía, Cantabria...), o distintos tipos de departamento (RRHH, Marketing, Comerical, Administración...). 
 
 Las variables categóricas se definen mediante la función `factor()`
 

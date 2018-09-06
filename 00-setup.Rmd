@@ -1,17 +1,44 @@
 ---
 title: "Preparacion"
 author: "Pablo Haya"
-date: "9/3/2018"
-output: ioslides_presentation
+date: "01/09/2018"
+output: html_document
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## Instalar paquetes
+## Instalar R
 
-```{r, echo = FALSE}
+* Ir a https://www.r-project.org/
+* Hacer clic en [download R](http://cran.r-project.org/mirrors.html)
+* Hacer clic en el repositorio https://cran.rediris.es/ al final de la página
+* Hacer clic en la versión para la plataforma deseada (Linux, Mac Os X, Windows)
+
+### Windows
+
+* Hacer clic en [install R for the first time](https://cran.rediris.es/bin/windows/base/)
+* Hacer clic en Download R
+* Instalar el programa
+
+El código de este curso ha sido probado con `r R.version.string` con lo hay que asegurarse que la versión que se descarga es igual o superior. 
+
+## Instalar RStudio
+
+RStudio es el entorno de desarrollo y análisis de datos más completo y evolucionado para `R`.
+
+* Ir a https://www.rstudio.com/
+* Hacer clic en Download RStudio
+* Hacer clic en Download RStudio Desktop Open Source License
+* Descargarse el instalador (Installer) de a la plataforma que se desee (Windows, Mac, Linux)
+* Descomprimir e instalar el programa
+
+## Instalar paquetes adicionales
+
+Para realizar el curso se requieren una serie de paquetes externos que es preciso instalar. Abrir RStudio, y en la consola copiar y pegar el siguiente código, y ejecutarlo.
+
+```{r eval=FALSE, echo=TRUE} 
 packs <- c("here", "tidyverse")
 install.packages(packs)
 ```
