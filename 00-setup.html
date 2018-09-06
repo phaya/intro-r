@@ -276,6 +276,9 @@ img {
 .tabbed-pane {
   padding-top: 12px;
 }
+.html-widget {
+  margin-bottom: 20px;
+}
 button.code-folding-btn:focus {
   outline: none;
 }
@@ -305,12 +308,11 @@ $(document).ready(function () {
 
 <h1 class="title toc-ignore">Preparacion</h1>
 <h4 class="author"><em>Pablo Haya</em></h4>
-<h4 class="date"><em>9/3/2018</em></h4>
 
 </div>
 
 
-<section id="instalar-r" class="level2">
+<div id="instalar-r" class="section level2">
 <h2>Instalar R</h2>
 <ul>
 <li>Ir a <a href="https://www.r-project.org/" class="uri">https://www.r-project.org/</a></li>
@@ -318,7 +320,7 @@ $(document).ready(function () {
 <li>Hacer clic en el repositorio <a href="https://cran.rediris.es/" class="uri">https://cran.rediris.es/</a> al final de la página</li>
 <li>Hacer clic en la versión para la plataforma deseada (Linux, Mac Os X, Windows)</li>
 </ul>
-<section id="windows" class="level3">
+<div id="windows" class="section level3">
 <h3>Windows</h3>
 <ul>
 <li>Hacer clic en <a href="https://cran.rediris.es/bin/windows/base/">install R for the first time</a></li>
@@ -326,9 +328,9 @@ $(document).ready(function () {
 <li>Instalar el programa</li>
 </ul>
 <p>El código de este curso ha sido probado con R version 3.4.3 (2017-11-30) con lo hay que asegurarse que la versión que se descarga es igual o superior.</p>
-</section>
-</section>
-<section id="instalar-rstudio" class="level2">
+</div>
+</div>
+<div id="instalar-rstudio" class="section level2">
 <h2>Instalar RStudio</h2>
 <p>RStudio es el entorno de desarrollo y análisis de datos más completo y evolucionado para <code>R</code>.</p>
 <ul>
@@ -338,13 +340,13 @@ $(document).ready(function () {
 <li>Descargarse el instalador (Installer) de a la plataforma que se desee (Windows, Mac, Linux)</li>
 <li>Descomprimir e instalar el programa</li>
 </ul>
-</section>
-<section id="instalar-paquetes-adicionales" class="level2">
+</div>
+<div id="instalar-paquetes-adicionales" class="section level2">
 <h2>Instalar paquetes adicionales</h2>
 <p>Para realizar el curso se requieren una serie de paquetes externos que es preciso instalar. Abrir RStudio, y en la consola copiar y pegar el siguiente código, y ejecutarlo.</p>
 <pre class="r"><code>packs &lt;- c(&quot;here&quot;, &quot;tidyverse&quot;)
 install.packages(packs)</code></pre>
-</section>
+</div>
 
 
 
