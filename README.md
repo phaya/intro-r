@@ -123,18 +123,18 @@ Temario del curso
 -----------------
 
 -   Preparacion: instalación y configuración del entorno
-    ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/00-setup.html))
+    ([html](https://cdn.rawgit.com/phaya/intro-r/devel/00-setup.html))
 
 ### Primera parte
 
 -   Primeros pasos
-    ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/01-basic-r.html))
+    ([html](https://cdn.rawgit.com/phaya/intro-r/devel/01-basic-r.html))
 -   Vectores
     ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/02-vector.html))
 -   Factores
-    ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/03-factor.html))
+    ([html](https://cdn.rawgit.com/phaya/intro-r/devel/03-factor.html))
 -   *Data Frames* ó tablas
-    ([html](https://cdn.rawgit.com/phaya/intro-r/blob/devel/04-dataframe.html))
+    ([html](https://cdn.rawgit.com/phaya/intro-r/devel/04-dataframe.html))
 
 Enlaces y material adicional
 ----------------------------
