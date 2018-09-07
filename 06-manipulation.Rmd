@@ -1,20 +1,21 @@
 ---
 title: "Manipulación de datos"
 author: "Pablo Haya"
-date: "9/2/2018"
-output: ioslides_presentation
+output: 
+  ioslides_presentation:
+      widescreen: true
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-# Importamos datos
+# Importamos los datos
 
 Empleamos la funcion `load()` para cargar la tabla que habíamos preparado en el tema anterior.
 
 ```{r, echo = TRUE}
-library(here)
+library(tidyverse)
 load(here("data","core_dataset_clean.RData"))
 ```
 
