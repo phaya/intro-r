@@ -169,5 +169,6 @@ save(df, file = here("data","core_dataset_clean.RData"))
 
 * [How to share data with a statiscian](https://github.com/jtleek/datasharing): resumen de cómo organizar el conjunto de datos, y los metadatos asociados para que sea más sencillo realizar los análisis.
 * [Human Resource Dataset](https://www.kaggle.com/rhuebner/human-resources-data-set): conjunto de datos publicado en Kaggle que se utiliza para este curso
-* [Documentación paquete here](https://here.r-lib.org/): paquete que permite determinar la ruta de un fichero relativa al directorio donde comienza el proyecto, e independiente de donde esté ubicado el script.
+* [Documentación here](https://here.r-lib.org/): paquete que permite determinar la ruta de un fichero relativa al directorio donde comienza el proyecto, e independiente de donde esté ubicado el script.
+* [Documentación stringr](https://www.rdocumentation.org/packages/stringr/versions/1.3.1): paquete que incluye funcionaes para manipular cadenas de caracteres (ej. `str_replace` que reemplaza una cadena por otra).
 * [RStudio Import Cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf): los comnados más utilizados en la importación de datos.
