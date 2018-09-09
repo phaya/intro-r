@@ -1,0 +1,69 @@
+---
+title: "Agregar y resumir"
+author: "Pablo Haya"
+date: "8/24/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Preparación
+
+Leemos el conjunto de datos que ya habíamos limpiado anteriormente.
+
+```{r echo = TRUE}
+library(here)
+library(tidyverse)
+load(here("data","core_dataset_clean.RData"))
+head(df)
+```
+
+# Group by
+
+La función `group_by()` permite especificar las columnas a partir de las cuales queremos realizar la agregación. Aparentemente no modifica la table aunque internamente queda preparada para las siguentes operaciones.
+
+```{r echo=TRUE}
+by_sex <- df %>% group_by(Sex)
+by_sex
+```
+
+## Summarise    
+
+
+```{r echo=TRUE}
+df %>% group_by(Sex) %>%
+       summarise(PayRate = mean(PayRate))
+```
+
+
+summarise_each allows you to apply the same summary function to multiple columns at once
+
+## Contar el número de elementos en un grupo
+
+n()
+
+---
+
+Helper function n_distinct(vector) counts the number of unique items in that vector
+
+rewrite more simply with the `tally` function
+
+## Resumir el pasado (Window Functions)
+
+min_rank()
+lag()
+lead()
+cummean()
+
+```{r echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
