@@ -1,0 +1,184 @@
+---
+title: "08-plot"
+author: "Pablo Haya"
+date: "9/6/2018"
+output: ioslides_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+## Leemos datos
+
+```{r echo=TRUE, message=FALSE, warning=FALSE}
+library(here)
+load(here("data","core_dataset_clean.RData"))
+```
+
+## Histogramas
+
+```{r echo TRUE}
+summary(df$PayRate)
+```
+
+---
+
+```{r echo=TRUE}
+hist(df$PayRate)
+```
+
+---
+
+```{r}
+hist(df$PayRate, breaks = 5)
+```
+
+```{r}
+hist(df$PayRate, breaks = 30)
+```
+
+---
+
+```{r}
+hist(df$PayRate, 
+     main="Esto es el título", sub="Esto es un subtítulo",
+     xlab="PayRate", ylab="Count")
+```
+
+## plot
+
+```{r}
+plot(df$DOB, df$PayRate)
+```
+
+---
+
+```{r}
+plot(df$DOB, df$PayRate,
+     main="Title", sub="subtitle",
+     xlab="Año", ylab="PayRate")
+```
+
+---
+
+```{r}
+plot(df$DOB, df$PayRate, col=df$Sex,
+     main="Title", sub="subtitle",
+     xlab="Año", ylab="PayRate")
+```
+
+---
+
+```{r}
+plot(df$DOB, df$PayRate, col=df$Sex,
+     main="Title", sub="subtitle",
+     xlab="Año", ylab="PayRate")
+# No se que pasa con la leyenda
+#legend(7, 4.3, levels(df$Sex), col=1:length(df$Sex), pch=1)
+```
+
+
+---
+
+```{r echo=FALSE}
+#++++++++++++++++++++++++++++++++++++++++++++
+#generate a plot of point shapes which R knows about.
+#++++++++++++++++++++++++++++++++++++++++++++
+# source: http://www.sthda.com/english/wiki/r-plot-pch-symbols-the-different-point-shapes-available-in-r
+generateRPointShapes<-function(){
+  oldPar<-par()
+  par(font=2, mar=c(0.5,0,0,0))
+  y=rev(c(rep(1,6),rep(2,5), rep(3,5), rep(4,5), rep(5,5)))
+  x=c(rep(1:5,5),6)
+  plot(x, y, pch = 0:25, cex=1.5, ylim=c(1,5.5), xlim=c(1,6.5), 
+       axes=FALSE, xlab="", ylab="", bg="blue")
+  text(x, y, labels=0:25, pos=3)
+  par(mar=oldPar$mar,font=oldPar$font )
+}
+generateRPointShapes()
+```
+
+## Series temporales
+
+Pintar la evoluación en la contratación
+
+```{r}
+
+```
+
+
+## Gráfico de barras
+
+```{r}
+count <- table(df$Department)
+barplot(count, col="white",
+        main="Title", sub="subtitle",
+        xlab="Departamento", ylab="Número empleados")
+```
+
+---
+
+```{r}
+count <- table(df$Sex, df$Department)
+barplot(count, 
+        main="Title", sub="subtitle",
+        xlab="Departamento", ylab="Número empleados",
+        col=c("red", "darkblue"), legend = rownames(count))
+```
+
+---
+
+```{r}
+count <- table(df$Sex, df$Department)
+barplot(count, 
+        main="Title", sub="subtitle",
+        xlab="Departamento", ylab="Número empleados",
+        col=c("red", "darkblue"), legend=rownames(count), beside=TRUE)
+```
+
+---
+
+```{r}
+count <- table(df$Sex, df$Department)
+barplot(count, 
+        main="Title", sub="subtitle",
+        xlab="Departamento", ylab="Número empleados",
+        col=c("red", "darkblue"), legend=rownames(count), 
+        beside=TRUE, horiz=TRUE)
+```
+
+## Boxplots
+
+```{r}
+plot(df$Sex, df$PayRate, main="Title", sub="subtitle",
+  xlab="Sex", ylab="PayRate")
+# que pasa con la leyenda
+legend(7, 4.3, levels(df$Sex), pch=1)
+```
+
+---
+Visualizar: plot, line, par, pairs
+Line plots
+
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+
+## Slide with Bullets
+
+- Bullet 1
+- Bullet 2
+- Bullet 3
+
+## Slide with R Output
+
+```{r cars, echo = TRUE}
+summary(cars)
+```
+
+## Slide with Plot
+
+```{r pressure}
+plot(pressure)
+```
+
