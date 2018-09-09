@@ -47,4 +47,4 @@ for (file in slides) {
 # Render README to gitbub README 
 ################################################################################
 
-render(here("Rmd",file), "md_document", output_dir=here("html"))
+render(here("Rmd","README.Rmd"), "md_document", output_dir=here())

@@ -27,7 +27,7 @@ Otros lenguajes de programación estadística son SAS, SPSS, ó Stata. Todos ell
 
 `R` es un lenguaje consolidado con de 20 años de historia que sigue creciendo su uso exponencialmente.
 
-![](/Users/phaya/Dropbox/courses/2018-intro-r/img/number-of-submitted-packages-to-CRAN.png)
+![](https://gist.githubusercontent.com/daroczig/3cf06d6db4be2bbe3368/raw/d16b3da080c149c88b5fd9722d3c3c02e4c8644d/number-of-submitted-packages-to-CRAN.png)
 
 Fuente: imagen creada por usando un [script](https://gist.github.com/daroczig/3cf06d6db4be2bbe3368#file-get-data-r) de Gergely Daróczi
 
@@ -35,7 +35,9 @@ Fuente: imagen creada por usando un [script](https://gist.github.com/daroczig/3c
 
 En el mundo académico se está convirtiendo en un estándar de-facto para la realización de análisis estadísticos, visualización y difusión de resultados que está desbancando a SPSS.
 
-![](/Users/phaya/Dropbox/courses/2018-intro-r/img/Fig_2d_ScholarlyImpact2016.png)
+![](%22img/Fig_2d_ScholarlyImpact2016.png%22%22)
+
+![](https://i0.wp.com/r4stats.com/wp-content/uploads/2017/06/Fig_2d_ScholarlyImpact2016.png)
 
 Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/) en [r4stats.com](http://r4stats.com)
 
@@ -43,7 +45,7 @@ Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/po
 
 En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes:
 
-![](/Users/phaya/Dropbox/courses/2018-intro-r/img/Fig-1c-R-v-SAS-2017-02-18.png)
+![](https://i1.wp.com/r4stats.com/wp-content/uploads/2017/02/Fig-1c-R-v-SAS-2017-02-18.png)
 
 Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/popularity/) en [r4stats.com](http://r4stats.com)
 
@@ -53,7 +55,7 @@ Actualmente `R` se encuentra las primeras posiciones de las listas más importan
 
 La siguiente gráfica compara número de proyectos en github, el repositorio de software libre más popular, y popularidad en stackoverflow, el portal más importante de preguntas-respuestas sobre lenguajes de programación.
 
-![](/Users/phaya/Dropbox/courses/2018-intro-r/img/lang.rank_.618-1.png)
+![](ttp://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png)
 
 Fuente: [The RedMonk Programming Language Rankings: June 2018](https://redmonk.com/sogrady/2018/08/10/language-rankings-6-18/) en <https://redmonk.com>
 
@@ -69,14 +71,14 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 Temario del curso
 -----------------
 
--   Preparacion: instalación y configuración del entorno ([html](https://cdn.rawgit.com/phaya/intro-r/devel/00-setup.html))
+-   Preparacion: instalación y configuración del entorno ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/00-setup.html))
 
 ### Primera parte
 
--   Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/01-basic-r.html))
--   Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/02-vector.html))
--   Factores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/03-factor.html))
--   *Data Frames* ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/devel/04-dataframe.html))
+-   Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/01-basic-r.html))
+-   Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/02-vector.html))
+-   Factores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/03-factor.html))
+-   *Data Frames* ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/html/devel/04-dataframe.html))
 
 Enlaces y material adicional
 ----------------------------
