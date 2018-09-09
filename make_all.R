@@ -30,7 +30,7 @@ slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
 
 # render to beamer presentation
 for (file in slides) {
-    path <- here("Rmd",file)
+    path <- here("Rmd", file)
     render(path, "beamer_presentation", output_dir=here("pdf"))    
 }
 
