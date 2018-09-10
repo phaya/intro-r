@@ -1,16 +1,21 @@
 ---
 title: "R primeros pasos"
-author: "Pablo Haya"
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "Twitter: @pablohaya"
+date: '09/2018<br>Correo-e: Pablo.Haya@uam.es, Pablo.Haya@iic.uam.es<br>'
 output:
+  ioslides_presentation:
+      widescreen: true
   beamer_presentation: default
-  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
 
-## R como una calculadora
+# pablohaya.com/teaching 
+
+## R como una calculadora {.smaller}
 
 Podemos realizar cualquiera de la operaciones básicas de una calculadora (`+`, `-`, `*`, `/`)
 
@@ -72,7 +77,7 @@ z <- x*y
 z
 ```
 
-## Tipos de datos
+## Tipos de datos {.smaller}
 
 Las variables pueden almacenar datos de distintos tipos. La función `class()` permite conocer el tipo de datos que almacena una variable. 
 
