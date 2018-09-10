@@ -1,30 +1,39 @@
 ---
-title: "08-plot"
-author: "Pablo Haya"
-date: "9/6/2018"
-output: ioslides_presentation
+title: "Visualización básica"
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "Twitter: @pablohaya"
+date: "09/2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Leemos datos
 
-```{r echo=TRUE, message=FALSE, warning=FALSE}
+Leemos el conjunto de datos que creamos en el tema anterior como combinación de `core_dataset.csv` y `production_staff.csv`
+
+```{r message=FALSE, warning=FALSE}
 library(here)
-load(here("data","core_dataset_clean.RData"))
+load(here("data","join_dataset_clean.RData"))
 ```
 
-## Histogramas
+## Resumen
 
-```{r echo TRUE}
+Vamos a visualizar la variable `PayRate`. 
+
+```{r}
 summary(df$PayRate)
 ```
 
 ---
 
-```{r echo=TRUE}
+## Histogramas
+
+```{r}
 hist(df$PayRate)
 ```
 
@@ -46,7 +55,7 @@ hist(df$PayRate,
      xlab="PayRate", ylab="Count")
 ```
 
-## plot
+## Función `plot`
 
 ```{r}
 plot(df$DOB, df$PayRate)

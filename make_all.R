@@ -31,7 +31,10 @@ slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
 # render to beamer presentation
 for (file in slides) {
     path <- here("Rmd", file)
-    render(path, "beamer_presentation", output_dir=here("pdf"))    
+    render(path, beamer_presentation(theme= "CambridgeUS",
+                                     colortheme= "orchid",
+                                     fonttheme= "structurebold"), 
+           output_dir=here("pdf"))    
 }
 
 ################################################################################
@@ -40,7 +43,7 @@ for (file in slides) {
 
 for (file in slides) {
     path <- here("Rmd",file)
-    render(path, "html_document", output_dir=here("html"))
+    render(path, ioslides_presentation(widescreen = TRUE), output_dir=here("html"))
 }
 
 ################################################################################
@@ -48,3 +51,14 @@ for (file in slides) {
 ################################################################################
 
 render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
+
+################################################################################
+# Render README to pdf
+################################################################################
+
+render(here("Rmd","README.Rmd"), 
+       beamer_presentation(theme= "CambridgeUS",
+                           colortheme= "orchid",
+                           fonttheme= "structurebold",
+                           ),
+       output_dir=here())

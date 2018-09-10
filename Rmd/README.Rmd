@@ -14,9 +14,9 @@ library(here)
 knitr::opts_chunk$set(echo = TRUE)
 
 include_img <- function(url) {
-    filename <- basename(url)
+    filename <- paste0(basename(url),".pdf")
     img_path <- here('img', filename)
-    knitr::include_graphics(if (identical(knitr:::pandoc_to(), 'pdf_document')) img_path else url)
+    knitr::include_graphics(if (identical(knitr:::pandoc_to(), 'beamer')) img_path else url)
 }
 ```
 
@@ -46,6 +46,8 @@ Otros lenguajes de programación estadística son SAS, SPSS, ó Stata. Todos ell
 
 `R` es un lenguaje consolidado con de 20 años de historia que sigue creciendo su uso exponencialmente.
 
+---
+
 `r include_img("https://gist.githubusercontent.com/daroczig/3cf06d6db4be2bbe3368/raw/d16b3da080c149c88b5fd9722d3c3c02e4c8644d/number-of-submitted-packages-to-CRAN.png")`
 
 Fuente: imagen creada por usando un [script](https://gist.github.com/daroczig/3cf06d6db4be2bbe3368#file-get-data-r) de Gergely Daróczi
@@ -54,7 +56,7 @@ Fuente: imagen creada por usando un [script](https://gist.github.com/daroczig/3c
 
 En el mundo académico se está convirtiendo en un estándar de-facto para la realización de análisis estadísticos, visualización y difusión de resultados que está desbancando a SPSS.
 
-![]("img/Fig_2d_ScholarlyImpact2016.png"")
+---
 
 `r include_img("https://i0.wp.com/r4stats.com/wp-content/uploads/2017/06/Fig_2d_ScholarlyImpact2016.png")`
 
@@ -62,7 +64,9 @@ Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/po
 
 ---
 
-En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes:
+En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes.
+
+---
 
 `r include_img("https://i1.wp.com/r4stats.com/wp-content/uploads/2017/02/Fig-1c-R-v-SAS-2017-02-18.png")`
 
@@ -73,6 +77,8 @@ Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/po
 Actualmente `R` se encuentra las primeras posiciones de las listas más importantes sobre lenguajes de programación, con el añadido de ser un lenguaje de nicho (ej. séptima posición en el [The 2018 Top Programming Languages](https://spectrum.ieee.org/at-work/innovation/the-2018-top-programming-languages) de IEEE Spectrum).
 
 La siguiente gráfica compara número de proyectos en github, el repositorio de software libre más popular, y popularidad en stackoverflow, el portal más importante de preguntas-respuestas sobre lenguajes de programación.
+
+---
 
 `r include_img("ttp://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png")`
 

@@ -2,11 +2,10 @@
 title: "R primeros pasos"
 subtitle: "HR Analytics: Teoría y Práctica"
 author: "Twitter: @pablohaya"
-date: '09/2018<br>Correo-e: Pablo.Haya@uam.es, Pablo.Haya@iic.uam.es<br>'
+date: "09/2018"
 output:
-  ioslides_presentation:
-      widescreen: true
   beamer_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}
