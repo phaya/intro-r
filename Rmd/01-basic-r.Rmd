@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 # pablohaya.com/teaching 
@@ -18,7 +18,7 @@ knitr::opts_chunk$set(echo = FALSE)
 
 Podemos realizar cualquiera de la operaciones básicas de una calculadora (`+`, `-`, `*`, `/`)
 
-```{r, echo = TRUE}
+```{r}
 2+3
 5-2
 4*3
@@ -29,7 +29,7 @@ Podemos realizar cualquiera de la operaciones básicas de una calculadora (`+`, 
 
 Incluso algunas más avanzadas :) como la exponenciación (`**`), o extraer el resto (%)
 
-```{r, echo = TRUE}
+```{r}
 2**4
 5%%3
 ```
@@ -38,7 +38,7 @@ Incluso algunas más avanzadas :) como la exponenciación (`**`), o extraer el r
 
 El uso de paréntesis permite cambiar el orden las operaciones 
 
-```{r, echo = TRUE}
+```{r}
 2+4*3
 (2+4)*3
 ```
@@ -47,7 +47,7 @@ El uso de paréntesis permite cambiar el orden las operaciones
 
 Las variables nos permiten almacenar un dato para su uso posterior mediante el operador asignación (`<-`)
 
-```{r, echo = TRUE}
+```{r}
 x <- 2
 y <- 5
 x*y
@@ -57,7 +57,7 @@ x*y
 
 Una variable puede tomar más de un valor almacenando el último valor que se la haya asignado
 
-```{r, echo = TRUE}
+```{r}
 x <- 2
 y <- 5
 x <- 10
@@ -68,7 +68,7 @@ x*y
 
 El resultado de una operación se puede asignar también a una variable
 
-```{r, echo=TRUE}
+```{r}
 x <- 2
 y <- 5
 x <- 10
@@ -80,7 +80,7 @@ z
 
 Las variables pueden almacenar datos de distintos tipos. La función `class()` permite conocer el tipo de datos que almacena una variable. 
 
-```{r, echo=TRUE}
+```{r}
 x <- 10
 class(x)
 x <- 1.5
@@ -92,7 +92,7 @@ class(x)
 
 R permite almacenar datos de tipo de texto (`character`) identificándose mediante comillas dobles `""` o simples `''`.
 
-```{r, echo=TRUE}
+```{r}
 s <- 'Hola, mundo'
 class(s)
 s <- "Hola, mundo"
@@ -105,14 +105,14 @@ Otro tipo de datos simple que aparecerá frecuencia es el tipo de datos booleano
 
 Las operadores de comparación (`>`, `<`, `>=`, `<=`, `==`, `!=`) devuelven valores booleanos.
 
-```{r, echo=TRUE}
+```{r}
 5 < 5
 5 <= 5
 ```
 
 ---
 
-```{r, echo=TRUE}
+```{r}
 3 == 1
 3 != 1
 class(2>=3)
@@ -122,7 +122,7 @@ class(2>=3)
 
 La líneas que comienzan con `#` son ignoradas por R, y permiten añadir al código comentarios que clarifiquen lo que se está haciendo a otros analistas o a uno mismo en el futuro  
 
-```{r, echo=TRUE}
+```{r}
 # Calculo soluciones ecuacion segundo grado
 # ax2 + bx +c = 0 con a != 0.
 a <- 1
@@ -138,7 +138,7 @@ cat(sol1, sol2)
 
 En cualquier momento se puede conseguir ayuda sobre cualquier objeto de R con la función `help()`. También es válido utilizar `?` antes del nombre del objeto que se quiere consultar.
 
-```{r, echo=TRUE}
+```{r}
 help(dunif) # también vale ?dunif
 ```
 
