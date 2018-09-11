@@ -23,6 +23,8 @@ if (!dir.exists(here("img"))) {
 
 map(img_urls, download_image)
 
+slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
+
 ################################################################################
 # Render slides to pdfs
 ################################################################################
@@ -30,8 +32,6 @@ map(img_urls, download_image)
 if (!dir.exists(here("pdf"))) {
     dir.create(here("pdf"))
 }
-
-slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
 
 # render to beamer presentation
 for (file in slides) {
@@ -68,6 +68,30 @@ render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
 render(here("Rmd","README.Rmd"), 
        beamer_presentation(theme= "CambridgeUS",
                            colortheme= "orchid",
-                           fonttheme= "structurebold"
+                           fonttheme= "structurebold",
+                           keep_tex= TRUE
                            ),
        output_dir=here())
+
+
+render(here("Rmd","01-basic-r.Rmd"), 
+       beamer_presentation(theme= "CambridgeUS",
+                           colortheme= "orchid",
+                           fonttheme= "structurebold",
+                           keep_tex= TRUE
+       ),
+       output_dir=here())
+
+################################################################################
+# Render script
+################################################################################
+library(stringr)
+
+if (!dir.exists(here("script"))) {
+    dir.create(here("script"))
+}
+
+for (file in slides) {
+    path <- here("Rmd", file)
+    knitr::purl(path, output=here("script", str_replace(file,"md$","")))
+}
