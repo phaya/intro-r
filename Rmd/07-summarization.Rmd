@@ -1,8 +1,11 @@
 ---
 title: "Agregar y resumir"
-author: "Pablo Haya"
-date: "8/24/2018"
-output: ioslides_presentation
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "Twitter: @pablohaya"
+date: "09/2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
 ---
 
 ```{r setup, include=FALSE}

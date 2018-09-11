@@ -26,6 +26,11 @@ map(img_urls, download_image)
 ################################################################################
 # Render slides to pdfs
 ################################################################################
+
+if (!dir.exists(here("pdf"))) {
+    dir.create(here("pdf"))
+}
+
 slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
 
 # render to beamer presentation
@@ -40,6 +45,10 @@ for (file in slides) {
 ################################################################################
 # Render slides to html
 ################################################################################
+
+if (!dir.exists(here("html"))) {
+    dir.create(here("html"))
+}
 
 for (file in slides) {
     path <- here("Rmd",file)
@@ -59,6 +68,6 @@ render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
 render(here("Rmd","README.Rmd"), 
        beamer_presentation(theme= "CambridgeUS",
                            colortheme= "orchid",
-                           fonttheme= "structurebold",
+                           fonttheme= "structurebold"
                            ),
        output_dir=here())

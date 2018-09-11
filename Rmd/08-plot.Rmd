@@ -23,7 +23,7 @@ load(here("data","join_dataset_clean.RData"))
 
 ## Resumen
 
-Vamos a visualizar la variable `PayRate`. 
+Vamos a ver el resumen de la variable `PayRate`. 
 
 ```{r}
 summary(df$PayRate)
@@ -33,29 +33,106 @@ summary(df$PayRate)
 
 ## Histogramas
 
+Los histogramas nos permiten visualizar la forma que tiene la distribución de una variable empleando la función `hist()`.
+
 ```{r}
 hist(df$PayRate)
 ```
 
 ---
 
-```{r}
-hist(df$PayRate, breaks = 5)
-```
+Es importante tener en cuenta que la elección de los puntos de corte de las barras pueden cambiar el histograma. 
 
 ```{r}
-hist(df$PayRate, breaks = 30)
+hist(df$PayRate, breaks = 3)
 ```
 
 ---
 
 ```{r}
+hist(df$PayRate, breaks = 30)
+```
+
+
+## Personalizando la gráfica
+
+Es posible personalizar la gráfica incluyendo distitnos parámetros como el título de la gráfica `main`, la etiquetas de los ejes (`xlab`, `ylab`), o subtítulo (`sub`). 
+
+```{r}
 hist(df$PayRate, 
-     main="Esto es el título", sub="Esto es un subtítulo",
-     xlab="PayRate", ylab="Count")
+     main="Distribución del precio por hora", sub="Sólo aplica a plantilla de producción",
+     xlab="Precio (h)", ylab="Frecuencia")
+```
+
+---
+
+Los colores y bordes de las barras también se pueden modificar con los parámetros `col` y `border` respectivamente.
+
+```{r}
+hist(df$PayRate, 
+     main="Distribución del precio por hora", sub="Sólo aplica a plantilla de producción",
+     xlab="Precio (h)", ylab="Frecuencia",
+     col="azure", 
+     border="azure4")
+```
+
+---
+
+## Función de densidad
+
+La función de densidad es una aproximación que muestra de manera continua la distribución de una variable.
+
+```{r}
+plot(density(df$PayRate))
+```
+
+## Gráficos de barras
+
+Los gráficos de barras permiten mostran variables categóricas.
+
+Aunque no se muestra en el gráfico, los parámetros para modificar el color de las barras siguen siendo aplicables.
+
+```{r}
+count <- table(df$MaritalDesc)
+barplot(count)
+```
+
+---
+
+Se puede mostrar el cruce de dos variables categóricas agrupando las barras por colores.
+
+Primero se genera una tabla con las combinaciones, y luego se indican los colores a emplear. Opcionalmente se puede incluir leyenda (`legend`).
+
+```{r}
+count <- table(df$Sex, df$MaritalDesc)
+barplot(count, col=c("darkseagreen1", "orange"), legend = rownames(count))
+```
+
+---
+
+El párametro `beside` permite controlar la posición de las barras.
+
+```{r}
+barplot(count, 
+        col=c("darkseagreen1", "orange"), legend = rownames(count), 
+        beside=TRUE)
+```
+
+---
+
+Mientras que el parámetro `horiz` nos permite girar las barras en posición horizontal.
+
+```{r}
+barplot(count,
+        col=c("darkseagreen1", "orange"), legend = rownames(count),
+        beside=TRUE, horiz=TRUE)
 ```
 
 ## Función `plot`
+
+La función genérica `plot()` permite visualizar dos variables eligiendo por el usuario una  representación adecuada.
+
+Por ejemplo, una variable fecha, y una variable númerica visualiza un gráfico de puntos.
 
 ```{r}
 plot(df$DOB, df$PayRate)
@@ -63,18 +140,12 @@ plot(df$DOB, df$PayRate)
 
 ---
 
-```{r}
-plot(df$DOB, df$PayRate,
-     main="Title", sub="subtitle",
-     xlab="Año", ylab="PayRate")
-```
-
----
+De nuevo es posible agrupar la gráfica por una variable adicional, y colorear los puntos. Así, como añadir parámetros de personalización anteriormente visto.
 
 ```{r}
 plot(df$DOB, df$PayRate, col=df$Sex,
-     main="Title", sub="subtitle",
-     xlab="Año", ylab="PayRate")
+     main="Distribución salarial por cohorte",
+     xlab="Año nacimiento", ylab="Precio por hora")
 ```
 
 ---
@@ -89,6 +160,8 @@ plot(df$DOB, df$PayRate, col=df$Sex,
 
 
 ---
+
+## Lista de símbolos disponibles
 
 ```{r echo=FALSE}
 #++++++++++++++++++++++++++++++++++++++++++++
@@ -117,46 +190,6 @@ Pintar la evoluación en la contratación
 ```
 
 
-## Gráfico de barras
-
-```{r}
-count <- table(df$Department)
-barplot(count, col="white",
-        main="Title", sub="subtitle",
-        xlab="Departamento", ylab="Número empleados")
-```
-
----
-
-```{r}
-count <- table(df$Sex, df$Department)
-barplot(count, 
-        main="Title", sub="subtitle",
-        xlab="Departamento", ylab="Número empleados",
-        col=c("red", "darkblue"), legend = rownames(count))
-```
-
----
-
-```{r}
-count <- table(df$Sex, df$Department)
-barplot(count, 
-        main="Title", sub="subtitle",
-        xlab="Departamento", ylab="Número empleados",
-        col=c("red", "darkblue"), legend=rownames(count), beside=TRUE)
-```
-
----
-
-```{r}
-count <- table(df$Sex, df$Department)
-barplot(count, 
-        main="Title", sub="subtitle",
-        xlab="Departamento", ylab="Número empleados",
-        col=c("red", "darkblue"), legend=rownames(count), 
-        beside=TRUE, horiz=TRUE)
-```
-
 ## Boxplots
 
 ```{r}
@@ -181,13 +214,20 @@ When you click the **Knit** button a document will be generated that includes bo
 
 ## Slide with R Output
 
-```{r cars, echo = TRUE}
-summary(cars)
+```{r echo=FALSE}
+table <- data.frame(
+            option=c("col", "col.axis", "col.lab", "col.main", "col.sub", "fg", "bg"),
+            description=c("color por defecto",
+                          "color para los ejes",
+                          "color para el título de los ejes",
+                          "color para el título principal",
+                          "color para el subtítulo",
+                          "color de elementos visibles",
+                          "color de fondo"))
+
+knitr::kable(table) 
 ```
 
-## Slide with Plot
+## Recursos y material
 
-```{r pressure}
-plot(pressure)
-```
-
+* [Colores en R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
