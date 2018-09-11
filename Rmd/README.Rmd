@@ -80,7 +80,7 @@ La siguiente gráfica compara número de proyectos en github, el repositorio de 
 
 ---
 
-`r include_img("ttp://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png")`
+`r include_img("http://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png")`
 
 Fuente: [The RedMonk Programming Language Rankings: June 2018](https://redmonk.com/sogrady/2018/08/10/language-rankings-6-18/) en https://redmonk.com 
 

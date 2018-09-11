@@ -62,8 +62,15 @@ for (file in slides) {
 render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
 
 ################################################################################
+# Render README to html
+################################################################################
+
+render(here("Rmd","README.Rmd"), "html_document", output_dir=here("html"))
+
+################################################################################
 # Render README to pdf
 ################################################################################
+
 
 render(here("Rmd","README.Rmd"), 
        beamer_presentation(theme= "CambridgeUS",
