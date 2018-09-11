@@ -53,14 +53,14 @@ hist(df$PayRate, breaks = 3)
 hist(df$PayRate, breaks = 30)
 ```
 
-
 ## Personalizando la gráfica
 
-Es posible personalizar la gráfica incluyendo distitnos parámetros como el título de la gráfica `main`, la etiquetas de los ejes (`xlab`, `ylab`), o subtítulo (`sub`). 
+Es posible personalizar la gráfica incluyendo distintos parámetros como el título de la gráfica `main`, la etiquetas de los ejes (`xlab`, `ylab`), o subtítulo (`sub`). 
 
 ```{r}
 hist(df$PayRate, 
-     main="Distribución del precio por hora", sub="Sólo aplica a plantilla de producción",
+     main="Distribución del precio por hora", 
+     sub="Sólo aplica a plantilla de producción",
      xlab="Precio (h)", ylab="Frecuencia")
 ```
 
@@ -70,13 +70,21 @@ Los colores y bordes de las barras también se pueden modificar con los parámet
 
 ```{r}
 hist(df$PayRate, 
-     main="Distribución del precio por hora", sub="Sólo aplica a plantilla de producción",
+     main="Distribución del precio por hora", 
+     sub="Sólo aplica a plantilla de producción",
      xlab="Precio (h)", ylab="Frecuencia",
-     col="azure", 
-     border="azure4")
+     col="azure", border="azure4")
 ```
 
----
+## Parámetros para definir colores
+
+- `col`  color por defecto 
+- `col.axis` color para los ejes
+- `col.lab` color para el título de los ejes 
+- `col.main` color para el título principal
+- `col.sub` color para el subtítulo
+- `fg` color para los elementos visibles
+- `bg` color para el fondo
 
 ## Función de densidad
 
@@ -86,11 +94,21 @@ La función de densidad es una aproximación que muestra de manera continua la d
 plot(density(df$PayRate))
 ```
 
+## Boxplots
+
+Los diagramas de caja resumen la distribución de una o más variables, y permiten compararlas fácilmente en una sola gráfica.
+
+```{r}
+boxplot(PayRate ~ Sex, data=df, 
+        xlab="Género", ylab="Precio por hora")
+```
+
+
 ## Gráficos de barras
 
-Los gráficos de barras permiten mostran variables categóricas.
+Los gráficos de barras permiten visualizar variables categóricas.
 
-Aunque no se muestra en el gráfico, los parámetros para modificar el color de las barras siguen siendo aplicables.
+Aunque no se muestra en el gráfico, siguen siendo aplicables los parámetros para modificar el color de las barras 
 
 ```{r}
 count <- table(df$MaritalDesc)
@@ -124,42 +142,26 @@ Mientras que el parámetro `horiz` nos permite girar las barras en posición hor
 
 ```{r}
 barplot(count,
-        col=c("darkseagreen1", "orange"), legend = rownames(count),
+        col=c("darkseagreen1", "orange"), 
+        legend = rownames(count),
         beside=TRUE, horiz=TRUE)
 ```
 
 ## Función `plot`
 
-La función genérica `plot()` permite visualizar dos variables eligiendo por el usuario una  representación adecuada.
-
-Por ejemplo, una variable fecha, y una variable númerica visualiza un gráfico de puntos.
+La función genérica `plot()` permite visualizar dos variables escogiendo una representación adecuada.
 
 ```{r}
-plot(df$DOB, df$PayRate)
+plot(df$Age, df$PayRate)
 ```
 
 ---
 
-De nuevo es posible agrupar la gráfica por una variable adicional, y colorear los puntos. Así, como añadir parámetros de personalización anteriormente visto.
+Se puede modificar el símbolo para representar un punto con el parámetro `pch`.
 
 ```{r}
-plot(df$DOB, df$PayRate, col=df$Sex,
-     main="Distribución salarial por cohorte",
-     xlab="Año nacimiento", ylab="Precio por hora")
+plot(df$Age, df$PayRate, pch=4)
 ```
-
----
-
-```{r}
-plot(df$DOB, df$PayRate, col=df$Sex,
-     main="Title", sub="subtitle",
-     xlab="Año", ylab="PayRate")
-# No se que pasa con la leyenda
-#legend(7, 4.3, levels(df$Sex), col=1:length(df$Sex), pch=1)
-```
-
-
----
 
 ## Lista de símbolos disponibles
 
@@ -181,53 +183,91 @@ generateRPointShapes<-function(){
 generateRPointShapes()
 ```
 
-## Series temporales
 
-Pintar la evoluación en la contratación
+---
+
+De nuevo es posible agrupar la gráfica por una variable adicional, y colorear los puntos. Así, como añadir los parámetros de personalización anteriormente visto.
 
 ```{r}
-
+plot(df$Age, df$PayRate, col=df$Sex,
+     main="Distribución salarial por cohorte",
+     xlab="Edad", ylab="Precio por hora")
+legend("topleft", 
+       levels(df$Sex), 
+       col=1:length(levels(df$Sex)), 
+       pch = 1)
 ```
 
+## Series temporales
 
-## Boxplots
+Cuando el eje `x` se corresponde con una medida del tiempo, tenemos una serie temporal de una variable.
+
+Primeramente, añadimos una variable que especifique el eje y la escala del tiempo.
 
 ```{r}
-plot(df$Sex, df$PayRate, main="Title", sub="subtitle",
-  xlab="Sex", ylab="PayRate")
-# que pasa con la leyenda
-legend(7, 4.3, levels(df$Sex), pch=1)
+library(tidyverse)
+hiring <- df %>%
+            mutate(year = format(DateofHire, "%Y")) %>%
+            group_by(year) %>%
+            summarise(total = n())
+hiring
+```
+---
+
+La serie temporal se visualiza indicándolo el parámetro `type`.
+
+```{r}
+plot(hiring$year, hiring$total, type="l")
 ```
 
 ---
-Visualizar: plot, line, par, pairs
-Line plots
+
+Los parámetros `lty` y `lwd` permiten cambiar el tipo de línea y el ancho respectivamente.
+
+```{r}
+plot(hiring$year, hiring$total, type="l",
+     lty=3, lwd=2)
+```
+---
+
+Es posible superponer varias visualizaciones en un mismo gráfico.
+
+```{r}
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+```
+
+---
+
+Así como incluir etiquetas para cada uno de los puntos.
+
+```{r}
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+text(hiring$year, hiring$total, labels=hiring$total, pos=3)
+```
+## Distintos tipos de línea
+
+```{r message=FALSE, warning=FALSE}
+# ToDo
+```
 
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
+## Configuración por defecto
 
-## Slide with Bullets
+La función `par()` permite modificar la configuración que se aplica por defecto a cada gráfica.
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r echo=FALSE}
-table <- data.frame(
-            option=c("col", "col.axis", "col.lab", "col.main", "col.sub", "fg", "bg"),
-            description=c("color por defecto",
-                          "color para los ejes",
-                          "color para el título de los ejes",
-                          "color para el título principal",
-                          "color para el subtítulo",
-                          "color de elementos visibles",
-                          "color de fondo"))
-
-knitr::kable(table) 
+```{r message=FALSE, warning=FALSE}
+old_par <- par()
+par(col.main="red") 
+hist(df$PayRate)   
+par(old_par)          
 ```
 
 ## Recursos y material
 
 * [Colores en R](http://www.stat.columbia.edu/~tzheng/files/Rcolor.pdf)
+* [Párametros gráficos](https://www.statmethods.net/advgraphs/parameters.html)
+* [Gráficas más habituales](https://www.statmethods.net/graphs/creating.html)
