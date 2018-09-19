@@ -186,7 +186,8 @@ Lo cual es bastante interesante ya que se puede emplear el vector resultante de 
 
 ```{r, echo = TRUE}
 v <- c(1, 2, 3, 4, 5, 6)
-# recordar que v < 4 devuelve c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)
+# recordar que v < 4 
+# devuelve c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)
 v[v < 4]
 v[c(TRUE, TRUE, TRUE, FALSE, FALSE, FALSE)]
 ```
