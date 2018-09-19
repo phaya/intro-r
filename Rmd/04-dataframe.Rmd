@@ -1,7 +1,7 @@
 ---
 title: "Data Frames"
 subtitle: "HR Analytics: Teoría y Práctica"
-author: "Twitter: @pablohaya"
+author: "http://pablohaya.com/contact"
 date: "09/2018"
 output:
   beamer_presentation: default
@@ -140,7 +140,8 @@ Como la comparación de un vector con un valor hace que obtengamos el valor de l
 
 ```{r, echo = TRUE}
 df$genero == "F"
-# df$genero == "F" equivalente a df[c(FALSE, TRUE, TRUE, FALSE), ]
+# df$genero == "F" equivalente a 
+# df[c(FALSE, TRUE, TRUE, FALSE), ]
 # devuelve todas las filas cuyo genero sea "F"
 df[df$genero == "F", ]
 ```
