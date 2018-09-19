@@ -8,7 +8,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Instalar R
@@ -40,7 +40,7 @@ RStudio es el entorno de desarrollo y análisis de datos más completo y evoluci
 
 Para realizar el curso se requieren una serie de paquetes externos que es preciso instalar. Abrir RStudio, y en la consola copiar y pegar el siguiente código, y ejecutarlo.
 
-```{r eval=FALSE, echo=TRUE} 
+```{r eval=FALSE} 
 packs <- c("here", "tidyverse")
 install.packages(packs)
 ```

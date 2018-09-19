@@ -23,9 +23,13 @@ Figuras relevantes que están contribuyendo significativamente al desarrollo y e
 ¿Por qué usar R?
 ----------------
 
+R aporta a un proyecto de análisis de datos tres características fundamentales: **replicabilidad**, **amplitud**, y **libertad**.
+
 Otros lenguajes de programación estadística son SAS, SPSS, ó Stata. Todos ellos son distribuidos por distintas empresas bajo licencia comercial.
 
 `R` es un lenguaje consolidado con de 20 años de historia que sigue creciendo su uso exponencialmente.
+
+------------------------------------------------------------------------
 
 ![](https://gist.githubusercontent.com/daroczig/3cf06d6db4be2bbe3368/raw/d16b3da080c149c88b5fd9722d3c3c02e4c8644d/number-of-submitted-packages-to-CRAN.png)
 
@@ -35,7 +39,7 @@ Fuente: imagen creada por usando un [script](https://gist.github.com/daroczig/3c
 
 En el mundo académico se está convirtiendo en un estándar de-facto para la realización de análisis estadísticos, visualización y difusión de resultados que está desbancando a SPSS.
 
-![](%22img/Fig_2d_ScholarlyImpact2016.png%22%22)
+------------------------------------------------------------------------
 
 ![](https://i0.wp.com/r4stats.com/wp-content/uploads/2017/06/Fig_2d_ScholarlyImpact2016.png)
 
@@ -43,7 +47,9 @@ Fuente: [The Popularity of Data Science Software](http://r4stats.com/articles/po
 
 ------------------------------------------------------------------------
 
-En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes:
+En la industria, la tendencia es que `R` le ha ido ganando terreno a SAS llegándole a superar en popularidad. La siguiente gráfica extraida de [r4stats](http://r4stats.com) muestra la evolución de la demanda del empleo para ambos lenguajes.
+
+------------------------------------------------------------------------
 
 ![](https://i1.wp.com/r4stats.com/wp-content/uploads/2017/02/Fig-1c-R-v-SAS-2017-02-18.png)
 
@@ -55,7 +61,9 @@ Actualmente `R` se encuentra las primeras posiciones de las listas más importan
 
 La siguiente gráfica compara número de proyectos en github, el repositorio de software libre más popular, y popularidad en stackoverflow, el portal más importante de preguntas-respuestas sobre lenguajes de programación.
 
-![](ttp://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png)
+------------------------------------------------------------------------
+
+![](http://sogrady-media.redmonk.com/sogrady/files/2018/08/lang.rank_.618-1.png)
 
 Fuente: [The RedMonk Programming Language Rankings: June 2018](https://redmonk.com/sogrady/2018/08/10/language-rankings-6-18/) en <https://redmonk.com>
 

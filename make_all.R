@@ -81,14 +81,6 @@ render(here("Rmd","README.Rmd"),
        output_dir=here())
 
 
-render(here("Rmd","01-basic-r.Rmd"), 
-       beamer_presentation(theme= "CambridgeUS",
-                           colortheme= "orchid",
-                           fonttheme= "structurebold",
-                           keep_tex= TRUE
-       ),
-       output_dir=here())
-
 ################################################################################
 # Render script
 ################################################################################

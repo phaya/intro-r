@@ -9,7 +9,7 @@ output:
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
+knitr::opts_chunk$set(echo = TRUE)
 ```
 
 ## Variables categóricas
@@ -20,7 +20,7 @@ Por ejemplo, el género (Masculino/Femenino), el grupo sanguíneno (O, A, B, AB)
 
 Las variables categóricas se definen mediante la función `factor()`
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("M", "F", "F", "M", "F"))
 f
 ```
@@ -29,7 +29,7 @@ f
 
 La función `summary()` nos permite obtener un recuento del número de valores que se ha encontrado por cada nivel:
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("M", "F", "F", "M", "F"))
 summary(f)
 ```
@@ -40,7 +40,7 @@ Una variable ordinal es una variable categóríca en la que se puede establecer 
 
 Las variables categóricas se definen mediante el parámetro `ordered`
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE)
 f
 ```
@@ -49,7 +49,7 @@ f
 
 Por defecto, el orden de las variables se asigna alfabéticamente. Se puede establecer el orden mediante añadiendo un vector que incluya los posible valores (niveles) en el orden que queramos
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE,
             c("TD", "NN", "TA"))
             
@@ -61,7 +61,7 @@ min(f)
 
 Incluso es posible especificar niveles que no estuvieran en el vector original, pero que pudieran ser valores factibles.
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE,
             c("TD", "D", "NN", "A", "TA"))
             
@@ -72,7 +72,7 @@ summary(f)
 ---
 
 Se puede renombrar los niveles originales dándoles otros nombres mediante el parámetro `labels` 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE,
             c("TD", "D", "NN", "A", "TA"), 
             labels = c("Totalmente en desacuerdo",
@@ -87,7 +87,7 @@ f
 
 Si pueden cambiar los niveles sobre un `factor` ya creado mediante empleando la función `levels()`
 
-```{r, echo = TRUE}
+```{r}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE,
             c("TD", "D", "NN", "A", "TA"))
 levels(f)
@@ -101,7 +101,7 @@ levels(f)
 
 La función `cut()` nos ayuda a convertir una variable númerica en factores. El parámetro `breaks` indica el número de intervalos, o los puntos de corte.
 
-```{r, echo = TRUE}
+```{r}
 x <- runif(1000, 0, 10)
 length(x)
 f <- cut(x, breaks=4)
@@ -110,7 +110,7 @@ summary(f)
 
 ---
 
-```{r, echo = TRUE}
+```{r}
 f <- cut(x, breaks=c(0, 5, 7, 9, 10), 
             labels=c("SUSPENSO", "APROBADO", 
                      "NOTABLE", "SOBRESALIENTE"))
