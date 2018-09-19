@@ -75,8 +75,10 @@ Se puede renombrar los niveles originales dándoles otros nombres mediante el pa
 ```{r, echo = TRUE}
 f <- factor(c("TD", "TA", "TA", "NN", "TA"), ordered = TRUE,
             c("TD", "D", "NN", "A", "TA"), 
-            labels = c("Totalmente en desacuerdo","En desacuerdo",
-                       "Ni de acuerdo ni en desacuerdo", "De acuerdo", 
+            labels = c("Totalmente en desacuerdo",
+                       "En desacuerdo",
+                       "Ni de acuerdo ni en desacuerdo", 
+                       "De acuerdo", 
                        "Totalmente de acuerdo"))
 f
 ```
@@ -102,7 +104,7 @@ La función `cut()` nos ayuda a convertir una variable númerica en factores. El
 ```{r, echo = TRUE}
 x <- runif(1000, 0, 10)
 length(x)
-f <- cut(x, breaks=5)
+f <- cut(x, breaks=4)
 summary(f)
 ```
 
