@@ -1,6 +1,8 @@
 ---
 title: "Motivación"
-author: "Pablo Haya"
+author: 
+- "Twitter: @pablohaya"
+- "Correo-e: Pablo.Haya@uam.es"
 output:
   md_document:
     variant: markdown_github
@@ -41,6 +43,8 @@ Chambers recibe en 1998 el prestigioso premio [ACM Sotfware System Award](https:
 Figuras relevantes que están contribuyendo significativamente al desarrollo y expansión del lenguaje son: [Hadley Wickham](http://hadley.nz/), [Yihui Xie](https://yihui.name/en/), y [Kirill Müller](http://krlmlr.github.io/) entre otros.
 
 ## ¿Por qué usar R?
+
+R aporta a un proyecto de análisis de datos tres características fundamentales: **replicabilidad**, **amplitud**, y **libertad**.
 
 Otros lenguajes de programación estadística son SAS, SPSS, ó Stata. Todos ellos son distribuidos por distintas empresas bajo licencia comercial.
 
