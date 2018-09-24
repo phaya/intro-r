@@ -117,6 +117,14 @@ text(hiring$year, hiring$total, labels=hiring$total, pos=3)
 ## ----message=FALSE, warning=FALSE----------------------------------------
 # ToDo
 
+## ------------------------------------------------------------------------
+png(file = here("img","myplot.png"), bg = "transparent")
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+text(hiring$year, hiring$total, labels=hiring$total, pos=3)
+dev.off()
+
 ## ----message=FALSE, warning=FALSE----------------------------------------
 old_par <- par()
 par(col.main="red") 
