@@ -31,7 +31,7 @@
       // Author information
       presenters: [
             {
-        name:  'Twitter: <span class="citation">@pablohaya</span>' ,
+        name:  '<a href="http://pablohaya.com/contact" class="uri">http://pablohaya.com/contact</a>' ,
         company: '',
         gplus: '',
         twitter: '',
@@ -262,7 +262,9 @@ by_sex</pre>
 
 </article></slide><slide class=""><hgroup><h2>Resumir el pasado (Window Functions)</h2></hgroup><article  id="resumir-el-pasado-window-functions">
 
-<p><code>tidyverse</code> incluye varias funciones que permiten resumir empleando los valores pasados.</p>
+<p><code>tidyverse</code> incluye varias funciones que permiten resumir empleando los valores pasados (<code>cumsum()</code>, <code>cummean()</code>, <code>lag()</code>, <code>lead()</code>&#8230;).</p>
+
+<p>Vamos a calcular la plantilla para cada año, y el crecimiento respecto al año anterior. Primeramente calculamos el número de contratados acumulado año a año.</p>
 
 <pre class = 'prettyprint lang-r'>df_c &lt;- df %&gt;% group_by(year=format(DateofHire, &quot;%Y&quot;)) %&gt;%
             summarise(count = n()) %&gt;%
@@ -286,6 +288,8 @@ df_c</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
+<p>A continuación, calculamos el acumulado del número de bajas.</p>
+
 <pre class = 'prettyprint lang-r'>df_e &lt;- df %&gt;% group_by(year=format(DateofTermination, &quot;%Y&quot;)) %&gt;%
                summarise(count = n()) %&gt;%
                mutate(despidos=cumsum(count)) %&gt;%
@@ -305,6 +309,8 @@ df_e</pre>
 ## 7 2016        83</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
+
+<p>Finalmente, juntamos las dos tablas anteriores, calculamos la plantilla para cada año, y el crecimiento.</p>
 
 <pre class = 'prettyprint lang-r'>library(scales)
 df_c %&gt;% full_join(df_e, by=&quot;year&quot;) %&gt;% 

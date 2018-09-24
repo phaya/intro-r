@@ -1,7 +1,7 @@
 ---
 title: "Visualización básica"
 subtitle: "HR Analytics: Teoría y Práctica"
-author: "Twitter: @pablohaya"
+author: "http://pablohaya.com/contact"
 date: "09/2018"
 output:
   beamer_presentation: default
@@ -254,6 +254,18 @@ text(hiring$year, hiring$total, labels=hiring$total, pos=3)
 # ToDo
 ```
 
+## Exportar una imagen
+
+Es posible exportar una imagen a distintos formatos (png, jpg, tiff, bmp, pdf...)
+
+```{r}
+png(file = here("img","myplot.png"), bg = "transparent")
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+text(hiring$year, hiring$total, labels=hiring$total, pos=3)
+dev.off()
+```
 
 ## Configuración por defecto
 

@@ -1,7 +1,7 @@
 ---
 title: "Agregar y resumir"
 subtitle: "HR Analytics: Teoría y Práctica"
-author: "Twitter: @pablohaya"
+author: "http://pablohaya.com/contact"
 date: "09/2018"
 output:
   beamer_presentation: default
@@ -102,7 +102,9 @@ df %>% group_by(Sex, Age) %>%
 
 ## Resumir el pasado (Window Functions)
 
-`tidyverse` incluye varias funciones que permiten resumir empleando los valores pasados.
+`tidyverse` incluye varias funciones que permiten resumir empleando los valores pasados (`cumsum()`, `cummean()`, `lag()`, `lead()`...). 
+
+Vamos a calcular la plantilla para cada año, y el crecimiento respecto al año anterior. Primeramente calculamos el número de contratados acumulado año a año.
 
 ```{r echo=TRUE}
 df_c <- df %>% group_by(year=format(DateofHire, "%Y")) %>%
@@ -114,6 +116,8 @@ df_c
 
 ---
 
+A continuación, calculamos el acumulado del número de bajas.
+
 ```{r echo=TRUE}
 df_e <- df %>% group_by(year=format(DateofTermination, "%Y")) %>%
                summarise(count = n()) %>%
@@ -124,6 +128,8 @@ df_e
 ```
 
 ---
+
+Finalmente, juntamos las dos tablas anteriores, calculamos la plantilla para cada año, y el crecimiento. 
 
 ```{r echo=TRUE}
 library(scales)
