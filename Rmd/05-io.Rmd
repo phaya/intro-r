@@ -30,7 +30,8 @@ La función `read.csv()` es equivalente a llamar a la función `read.table()` in
 
 ```{r}
 library(here)
-df <- read.table(here("data", "core_dataset.csv"), header = TRUE, sep = ",")
+df <- read.table(here("data", "core_dataset.csv"), 
+                 header = TRUE, sep = ",")
 head(df)
 ```
 
@@ -82,7 +83,8 @@ Transformamos las variables que son de tipo fecha mediante la función `parse_co
 
 ```{r}
 date_cols <- c("DOB", "DateofHire", "DateofTermination")
-df[, date_cols] <- map(df[, date_cols], parse_date, "%m/%d/%Y")
+df[, date_cols] <- map(df[, date_cols], 
+                       parse_date, "%m/%d/%Y")
 ```
 
 ---
@@ -92,8 +94,9 @@ La función `read_csv()` evita definir factores, de manera que es el usuario el 
 Empleamos la función `map()` para ejecutar una función, en este caso `factor()` sobre un conjunto de vectores. 
 
 ```{r}
-fct_cols <- c("State","Zip", "Sex", "MaritalDesc", "CitizenDesc", 
-              "HispanicLatino", "RaceDesc", "ReasonForTerm", 
+fct_cols <- c("State","Zip", "Sex", "MaritalDesc", 
+              "CitizenDesc", "HispanicLatino", 
+              "RaceDesc", "ReasonForTerm", 
               "EmploymentStatus", "Department", "Position", 
               "EmployeeSource", "PerformanceScore")
 df[, fct_cols] <- map(df[, fct_cols], factor)
@@ -131,9 +134,9 @@ df$Sex <- factor(df$Sex)
 
 Corregimos los valores de la variable `HispanicLatino`, y volvemos a convertir en factor.
 
-```{r}
-df$HispanicLatino <- str_replace(df$HispanicLatino, "no", "No")
-df$HispanicLatino <- str_replace(df$HispanicLatino, "yes", "Yes")
+```{r size="small"}
+df$HispanicLatino <- str_replace(df$HispanicLatino,"no","No")
+df$HispanicLatino <- str_replace(df$HispanicLatino,"yes","Yes")
 df$HispanicLatino <- factor(df$HispanicLatino)
 ```
 
@@ -173,4 +176,4 @@ save(df, file = here("data","core_dataset_clean.RData"))
 * [Human Resource Dataset](https://www.kaggle.com/rhuebner/human-resources-data-set): conjunto de datos publicado en Kaggle que se utiliza para este curso
 * [Documentación here](https://here.r-lib.org/): paquete que permite determinar la ruta de un fichero relativa al directorio donde comienza el proyecto, e independiente de donde esté ubicado el script.
 * [Documentación stringr](https://www.rdocumentation.org/packages/stringr/versions/1.3.1): paquete que incluye funcionaes para manipular cadenas de caracteres (ej. `str_replace` que reemplaza una cadena por otra).
-* [RStudio Import Cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf): los comnados más utilizados en la importación de datos.r
+* [RStudio Import Cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf): los comanddos más utilizados en la importación de datos.

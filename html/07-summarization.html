@@ -139,7 +139,9 @@ head(df)</pre>
 
 <p>Es posible incluir más de un función para realizar distintos resumenes.</p>
 
-<pre class = 'prettyprint lang-r'>df %&gt;% summarise(mean(PayRate), median(PayRate), var(PayRate))</pre>
+<pre class = 'prettyprint lang-r'>df %&gt;% summarise(mean(PayRate), 
+                 median(PayRate), 
+                 var(PayRate))</pre>
 
 <pre >## # A tibble: 1 x 3
 ##   `mean(PayRate)` `median(PayRate)` `var(PayRate)`
@@ -161,7 +163,9 @@ head(df)</pre>
 
 <p>También es posible personalizar el nombre de las columnas de la nueva tabla.</p>
 
-<pre class = 'prettyprint lang-r'>df %&gt;% summarise(media=mean(PayRate), mediana=median(PayRate), var=var(PayRate))</pre>
+<pre class = 'prettyprint lang-r'>df %&gt;% summarise(media=mean(PayRate), 
+                 mediana=median(PayRate), 
+                 var=var(PayRate))</pre>
 
 <pre >## # A tibble: 1 x 3
 ##   media mediana   var
@@ -313,13 +317,14 @@ df_e</pre>
 <p>Finalmente, juntamos las dos tablas anteriores, calculamos la plantilla para cada año, y el crecimiento.</p>
 
 <pre class = 'prettyprint lang-r'>library(scales)
-df_c %&gt;% full_join(df_e, by=&quot;year&quot;) %&gt;% 
-         mutate(despidos=ifelse(is.na(despidos), 0, despidos)) %&gt;%
-         mutate(plantilla=contratacion-despidos) %&gt;%
-         mutate(plantilla_1=lag(plantilla)) %&gt;%
-         mutate(crecimiento=(plantilla-plantilla_1)/plantilla) %&gt;%
-         mutate(crecimiento=percent(crecimiento)) %&gt;%
-         select(year, plantilla, crecimiento)</pre>
+df_c %&gt;% 
+    full_join(df_e, by=&quot;year&quot;) %&gt;% 
+    mutate(despidos=ifelse(is.na(despidos), 0, despidos)) %&gt;%
+    mutate(plantilla=contratacion-despidos) %&gt;%
+    mutate(plantilla_1=lag(plantilla)) %&gt;%
+    mutate(crecimiento=(plantilla-plantilla_1)/plantilla) %&gt;%
+    mutate(crecimiento=percent(crecimiento)) %&gt;%
+    select(year, plantilla, crecimiento)</pre>
 
 <pre >## # A tibble: 10 x 3
 ##    year  plantilla crecimiento

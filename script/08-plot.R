@@ -8,7 +8,7 @@ load(here("data","join_dataset_clean.RData"))
 ## ------------------------------------------------------------------------
 summary(df$PayRate)
 
-## ------------------------------------------------------------------------
+## ----echo=FALSE----------------------------------------------------------
 hist(df$PayRate)
 
 ## ------------------------------------------------------------------------
@@ -17,13 +17,26 @@ hist(df$PayRate, breaks = 3)
 ## ------------------------------------------------------------------------
 hist(df$PayRate, breaks = 30)
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## hist(df$PayRate,
+##      main="Distribución del precio por hora",
+##      sub="Sólo aplica a plantilla de producción",
+##      xlab="Precio (h)", ylab="Frecuencia")
+
+## ----echo=FALSE----------------------------------------------------------
 hist(df$PayRate, 
      main="Distribución del precio por hora", 
      sub="Sólo aplica a plantilla de producción",
      xlab="Precio (h)", ylab="Frecuencia")
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## hist(df$PayRate,
+##      main="Distribución del precio por hora",
+##      sub="Sólo aplica a plantilla de producción",
+##      xlab="Precio (h)", ylab="Frecuencia",
+##      col="azure", border="azure4")
+
+## ----echo=FALSE----------------------------------------------------------
 hist(df$PayRate, 
      main="Distribución del precio por hora", 
      sub="Sólo aplica a plantilla de producción",
@@ -41,16 +54,35 @@ boxplot(PayRate ~ Sex, data=df,
 count <- table(df$MaritalDesc)
 barplot(count)
 
-## ------------------------------------------------------------------------
-count <- table(df$Sex, df$MaritalDesc)
-barplot(count, col=c("darkseagreen1", "orange"), legend = rownames(count))
+## ----eval=FALSE----------------------------------------------------------
+## count <- table(df$Sex, df$MaritalDesc)
+## barplot(count, col=c("darkseagreen1", "orange"),
+##         legend = rownames(count))
 
-## ------------------------------------------------------------------------
+## ----echo=FALSE----------------------------------------------------------
+count <- table(df$Sex, df$MaritalDesc)
+barplot(count, col=c("darkseagreen1", "orange"), 
+        legend = rownames(count))
+
+## ----eval=FALSE----------------------------------------------------------
+## barplot(count,
+##         col=c("darkseagreen1", "orange"),
+##         legend = rownames(count),
+##         beside=TRUE)
+
+## ----echo=FALSE----------------------------------------------------------
 barplot(count, 
-        col=c("darkseagreen1", "orange"), legend = rownames(count), 
+        col=c("darkseagreen1", "orange"), 
+        legend = rownames(count), 
         beside=TRUE)
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## barplot(count,
+##         col=c("darkseagreen1", "orange"),
+##         legend = rownames(count),
+##         beside=TRUE, horiz=TRUE)
+
+## ----echo=FALSE----------------------------------------------------------
 barplot(count,
         col=c("darkseagreen1", "orange"), 
         legend = rownames(count),
@@ -79,7 +111,16 @@ generateRPointShapes<-function(){
 }
 generateRPointShapes()
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## plot(df$Age, df$PayRate, col=df$Sex,
+##      main="Distribución salarial por cohorte",
+##      xlab="Edad", ylab="Precio por hora")
+## legend("topleft",
+##        levels(df$Sex),
+##        col=1:length(levels(df$Sex)),
+##        pch = 1)
+
+## ----echo=FALSE----------------------------------------------------------
 plot(df$Age, df$PayRate, col=df$Sex,
      main="Distribución salarial por cohorte",
      xlab="Edad", ylab="Precio por hora")
@@ -88,7 +129,15 @@ legend("topleft",
        col=1:length(levels(df$Sex)), 
        pch = 1)
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## library(tidyverse)
+## hiring <- df %>%
+##             mutate(year = format(DateofHire, "%Y")) %>%
+##             group_by(year) %>%
+##             summarise(total = n())
+## hiring
+
+## ----echo=FALSE----------------------------------------------------------
 library(tidyverse)
 hiring <- df %>%
             mutate(year = format(DateofHire, "%Y")) %>%
@@ -103,27 +152,35 @@ plot(hiring$year, hiring$total, type="l")
 plot(hiring$year, hiring$total, type="l",
      lty=3, lwd=2)
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## plot(hiring$year, hiring$total)
+## lines(hiring$year, hiring$total,
+##      lty=3, lwd=2)
+
+## ----echo=FALSE----------------------------------------------------------
 plot(hiring$year, hiring$total)
 lines(hiring$year, hiring$total,
      lty=3, lwd=2)
 
-## ------------------------------------------------------------------------
+## ----eval=FALSE----------------------------------------------------------
+## plot(hiring$year, hiring$total)
+## lines(hiring$year, hiring$total,
+##      lty=3, lwd=2)
+## text(hiring$year, hiring$total, labels=hiring$total, pos=3)
+
+## ----echo=FALSE----------------------------------------------------------
 plot(hiring$year, hiring$total)
 lines(hiring$year, hiring$total,
      lty=3, lwd=2)
 text(hiring$year, hiring$total, labels=hiring$total, pos=3)
 
-## ----message=FALSE, warning=FALSE----------------------------------------
-# ToDo
-
-## ------------------------------------------------------------------------
-png(file = here("img","myplot.png"), bg = "transparent")
-plot(hiring$year, hiring$total)
-lines(hiring$year, hiring$total,
-     lty=3, lwd=2)
-text(hiring$year, hiring$total, labels=hiring$total, pos=3)
-dev.off()
+## ----eval=FALSE----------------------------------------------------------
+## png(file = here("img","myplot.png"), bg = "transparent")
+## plot(hiring$year, hiring$total)
+## lines(hiring$year, hiring$total,
+##      lty=3, lwd=2)
+## text(hiring$year, hiring$total, labels=hiring$total, pos=3)
+## dev.off()
 
 ## ----message=FALSE, warning=FALSE----------------------------------------
 old_par <- par()

@@ -168,7 +168,8 @@ load(here(&quot;data&quot;,&quot;core_dataset_clean.RData&quot;))</pre>
 
 <p>Se pueden incluir operadores lógicos para realizar condiciones más complejas.</p>
 
-<pre class = 'prettyprint lang-r'>filter(df, (MaritalDesc == &quot;Single&quot; | Age &lt; 30) &amp; Sex == &quot;Male&quot;)</pre>
+<pre class = 'prettyprint lang-r'>filter(df, (MaritalDesc == &quot;Single&quot; | Age &lt; 30) &amp; 
+            Sex == &quot;Male&quot;)</pre>
 
 <pre >## # A tibble: 65 x 21
 ##    EmployeeName EmployeeNumber State Zip   DOB          Age Sex  
@@ -350,16 +351,16 @@ load(here(&quot;data&quot;,&quot;core_dataset_clean.RData&quot;))</pre>
 <pre >## # A tibble: 302 x 2
 ##      Age Days       
 ##    &lt;int&gt; &lt;time&gt;     
-##  1    32 3619 days  
-##  2    33 1722 days  
-##  3    31 1456 days  
-##  4    32 1316 days  
-##  5    29 1242 days  
-##  6    30 2555 days  
-##  7    33 &quot; 993 days&quot;
-##  8    33 2772 days  
-##  9    30 1316 days  
-## 10    38 3549 days  
+##  1    32 3620 days  
+##  2    33 1723 days  
+##  3    31 1457 days  
+##  4    32 1317 days  
+##  5    29 1243 days  
+##  6    30 2556 days  
+##  7    33 &quot; 994 days&quot;
+##  8    33 2773 days  
+##  9    30 1317 days  
+## 10    38 3550 days  
 ## # ... with 292 more rows</pre>
 
 </article></slide><slide class=""><hgroup><h2>Combinando tablas</h2></hgroup><article  id="combinando-tablas">
@@ -368,9 +369,9 @@ load(here(&quot;data&quot;,&quot;core_dataset_clean.RData&quot;))</pre>
 
 <p>Este conjunto tiene que compartir al menos una columna con la tabla queremos combinar. Idealmente tendría que ser una variable que fuera un identificador único.</p>
 
-<pre class = 'prettyprint lang-r'>df_prod &lt;- read_csv(here(&quot;data&quot;, &quot;production_staff.csv&quot;))
-colnames(df_prod) &lt;- str_replace_all(colnames(df_prod), &quot;[ /-]&quot;, &quot;&quot;)
-colnames(df_prod)</pre>
+<pre class = 'prettyprint lang-r'>df_pr &lt;- read_csv(here(&quot;data&quot;, &quot;production_staff.csv&quot;))
+colnames(df_pr) &lt;- str_replace_all(colnames(df_pr), &quot;[ /-]&quot;, &quot;&quot;)
+colnames(df_pr)</pre>
 
 <pre >##  [1] &quot;EmployeeName&quot;     &quot;RaceDesc&quot;         &quot;DateofHire&quot;      
 ##  [4] &quot;TermDate&quot;         &quot;ReasonforTerm&quot;    &quot;EmploymentStatus&quot;
@@ -386,7 +387,7 @@ colnames(df_prod)</pre>
 
 <pre >## [1] 302  21</pre>
 
-<pre class = 'prettyprint lang-r'>dim(df_prod)</pre>
+<pre class = 'prettyprint lang-r'>dim(df_pr)</pre>
 
 <pre >## [1] 209  15</pre>
 
@@ -394,7 +395,7 @@ colnames(df_prod)</pre>
 
 <p>La función <code>inner_join()</code> crea una nueva tabla manteniendo las filas que compartan identificar en las tablas originales. Aquellas filas que no emparejan se descartan.</p>
 
-<pre class = 'prettyprint lang-r'>df_inner &lt;- df %&gt;% inner_join(df_prod, by=&quot;EmployeeName&quot;)
+<pre class = 'prettyprint lang-r'>df_inner &lt;- df %&gt;% inner_join(df_pr, by=&quot;EmployeeName&quot;)
 df_inner</pre>
 
 <pre >## # A tibble: 209 x 35
@@ -425,7 +426,7 @@ df_inner</pre>
 
 <p>Otros maneras de combinar dos tablas son <em>uniones externas</em> mediante las funciones <code>left_join()</code>, <code>right_join()</code> y <code>full_join()</code>.</p>
 
-<pre class = 'prettyprint lang-r'>df_full &lt;- df %&gt;% full_join(df_prod, by = &quot;EmployeeName&quot;)
+<pre class = 'prettyprint lang-r'>df_full &lt;- df %&gt;% full_join(df_pr, by = &quot;EmployeeName&quot;)
 dim(df_full)</pre>
 
 <pre >## [1] 302  35</pre>
@@ -456,7 +457,9 @@ dim(df_full)</pre>
 
 <p>Esto es un indicador de mala organización del conjunto de datos, o del mala elección del nombre de las columnas en las tablas originales.</p>
 
-<pre class = 'prettyprint lang-r'>cols &lt;- df %&gt;% inner_join(df_prod, by=&quot;EmployeeName&quot;) %&gt;% colnames()
+<pre class = 'prettyprint lang-r'>cols &lt;- df %&gt;% 
+        inner_join(df_prod, by=&quot;EmployeeName&quot;) %&gt;% 
+        colnames()
 cols</pre>
 
 <pre >##  [1] &quot;EmployeeName&quot;       &quot;EmployeeNumber&quot;     &quot;State&quot;             
@@ -474,7 +477,9 @@ cols</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
-<pre class = 'prettyprint lang-r'>df &lt;- df %&gt;% inner_join(df_prod, by=&quot;EmployeeName&quot;) %&gt;% select(-contains(&quot;.y&quot;))
+<pre class = 'prettyprint lang-r'>df &lt;- df %&gt;% 
+      inner_join(df_prod, by=&quot;EmployeeName&quot;) %&gt;% 
+      select(-contains(&quot;.y&quot;))
 colnames(df) &lt;- str_replace_all(colnames(df), &quot;\\.x&quot;, &quot;&quot;)
 colnames(df)</pre>
 

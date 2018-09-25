@@ -88,6 +88,13 @@ Temario del curso
 -   Factores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/03-factor.html))
 -   *Data Frames* ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/04-dataframe.html))
 
+### Segunda parte
+
+-   Leer y escribir ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/05-io.html))
+-   Manipulación de datos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/06-manipulation.html))
+-   Agregar y resumir ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/07-summarization.html))
+-   Visualizar ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/08-plot.html))
+
 Enlaces y material adicional
 ----------------------------
 

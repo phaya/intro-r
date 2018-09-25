@@ -35,7 +35,9 @@ summary(df$PayRate)
 
 Los histogramas nos permiten visualizar la forma que tiene la distribución de una variable empleando la función `hist()`.
 
-```{r}
+---
+
+```{r echo=FALSE}
 hist(df$PayRate)
 ```
 
@@ -57,7 +59,16 @@ hist(df$PayRate, breaks = 30)
 
 Es posible personalizar la gráfica incluyendo distintos parámetros como el título de la gráfica `main`, la etiquetas de los ejes (`xlab`, `ylab`), o subtítulo (`sub`). 
 
-```{r}
+```{r eval=FALSE}
+hist(df$PayRate, 
+     main="Distribución del precio por hora", 
+     sub="Sólo aplica a plantilla de producción",
+     xlab="Precio (h)", ylab="Frecuencia")
+```
+
+---
+
+```{r echo=FALSE}
 hist(df$PayRate, 
      main="Distribución del precio por hora", 
      sub="Sólo aplica a plantilla de producción",
@@ -68,7 +79,17 @@ hist(df$PayRate,
 
 Los colores y bordes de las barras también se pueden modificar con los parámetros `col` y `border` respectivamente.
 
-```{r}
+```{r eval=FALSE}
+hist(df$PayRate, 
+     main="Distribución del precio por hora", 
+     sub="Sólo aplica a plantilla de producción",
+     xlab="Precio (h)", ylab="Frecuencia",
+     col="azure", border="azure4")
+```
+
+---
+
+```{r echo=FALSE}
 hist(df$PayRate, 
      main="Distribución del precio por hora", 
      sub="Sólo aplica a plantilla de producción",
@@ -90,6 +111,8 @@ hist(df$PayRate,
 
 La función de densidad es una aproximación que muestra de manera continua la distribución de una variable.
 
+---
+
 ```{r}
 plot(density(df$PayRate))
 ```
@@ -97,6 +120,8 @@ plot(density(df$PayRate))
 ## Boxplots
 
 Los diagramas de caja resumen la distribución de una o más variables, y permiten compararlas fácilmente en una sola gráfica.
+
+---
 
 ```{r}
 boxplot(PayRate ~ Sex, data=df, 
@@ -110,6 +135,8 @@ Los gráficos de barras permiten visualizar variables categóricas.
 
 Aunque no se muestra en el gráfico, siguen siendo aplicables los parámetros para modificar el color de las barras 
 
+---
+
 ```{r}
 count <- table(df$MaritalDesc)
 barplot(count)
@@ -121,18 +148,37 @@ Se puede mostrar el cruce de dos variables categóricas agrupando las barras por
 
 Primero se genera una tabla con las combinaciones, y luego se indican los colores a emplear. Opcionalmente se puede incluir leyenda (`legend`).
 
-```{r}
+```{r eval=FALSE}
 count <- table(df$Sex, df$MaritalDesc)
-barplot(count, col=c("darkseagreen1", "orange"), legend = rownames(count))
+barplot(count, col=c("darkseagreen1", "orange"), 
+        legend = rownames(count))
+```
+
+---
+
+```{r echo=FALSE}
+count <- table(df$Sex, df$MaritalDesc)
+barplot(count, col=c("darkseagreen1", "orange"), 
+        legend = rownames(count))
 ```
 
 ---
 
 El párametro `beside` permite controlar la posición de las barras.
 
-```{r}
+```{r eval=FALSE}
 barplot(count, 
-        col=c("darkseagreen1", "orange"), legend = rownames(count), 
+        col=c("darkseagreen1", "orange"), 
+        legend = rownames(count), 
+        beside=TRUE)
+```
+
+---
+
+```{r echo=FALSE}
+barplot(count, 
+        col=c("darkseagreen1", "orange"), 
+        legend = rownames(count), 
         beside=TRUE)
 ```
 
@@ -140,7 +186,16 @@ barplot(count,
 
 Mientras que el parámetro `horiz` nos permite girar las barras en posición horizontal.
 
-```{r}
+```{r eval=FALSE}
+barplot(count,
+        col=c("darkseagreen1", "orange"), 
+        legend = rownames(count),
+        beside=TRUE, horiz=TRUE)
+```
+
+---
+
+```{r echo=FALSE}
 barplot(count,
         col=c("darkseagreen1", "orange"), 
         legend = rownames(count),
@@ -150,6 +205,8 @@ barplot(count,
 ## Función `plot`
 
 La función genérica `plot()` permite visualizar dos variables escogiendo una representación adecuada.
+
+---
 
 ```{r}
 plot(df$Age, df$PayRate)
@@ -183,12 +240,23 @@ generateRPointShapes<-function(){
 generateRPointShapes()
 ```
 
-
 ---
 
 De nuevo es posible agrupar la gráfica por una variable adicional, y colorear los puntos. Así, como añadir los parámetros de personalización anteriormente visto.
 
-```{r}
+```{r eval=FALSE}
+plot(df$Age, df$PayRate, col=df$Sex,
+     main="Distribución salarial por cohorte",
+     xlab="Edad", ylab="Precio por hora")
+legend("topleft", 
+       levels(df$Sex), 
+       col=1:length(levels(df$Sex)), 
+       pch = 1)
+```
+
+---
+
+```{r echo=FALSE}
 plot(df$Age, df$PayRate, col=df$Sex,
      main="Distribución salarial por cohorte",
      xlab="Edad", ylab="Precio por hora")
@@ -204,7 +272,7 @@ Cuando el eje `x` se corresponde con una medida del tiempo, tenemos una serie te
 
 Primeramente, añadimos una variable que especifique el eje y la escala del tiempo.
 
-```{r}
+```{r eval=FALSE}
 library(tidyverse)
 hiring <- df %>%
             mutate(year = format(DateofHire, "%Y")) %>%
@@ -212,6 +280,17 @@ hiring <- df %>%
             summarise(total = n())
 hiring
 ```
+---
+
+```{r echo=FALSE}
+library(tidyverse)
+hiring <- df %>%
+            mutate(year = format(DateofHire, "%Y")) %>%
+            group_by(year) %>%
+            summarise(total = n())
+hiring
+```
+
 ---
 
 La serie temporal se visualiza indicándolo el parámetro `type`.
@@ -228,11 +307,20 @@ Los parámetros `lty` y `lwd` permiten cambiar el tipo de línea y el ancho resp
 plot(hiring$year, hiring$total, type="l",
      lty=3, lwd=2)
 ```
+
 ---
 
 Es posible superponer varias visualizaciones en un mismo gráfico.
 
-```{r}
+```{r eval=FALSE}
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+```
+
+---
+
+```{r echo=FALSE}
 plot(hiring$year, hiring$total)
 lines(hiring$year, hiring$total,
      lty=3, lwd=2)
@@ -242,23 +330,27 @@ lines(hiring$year, hiring$total,
 
 Así como incluir etiquetas para cada uno de los puntos.
 
-```{r}
+```{r eval=FALSE}
 plot(hiring$year, hiring$total)
 lines(hiring$year, hiring$total,
      lty=3, lwd=2)
 text(hiring$year, hiring$total, labels=hiring$total, pos=3)
 ```
-## Distintos tipos de línea
 
-```{r message=FALSE, warning=FALSE}
-# ToDo
+---
+
+```{r echo=FALSE}
+plot(hiring$year, hiring$total)
+lines(hiring$year, hiring$total,
+     lty=3, lwd=2)
+text(hiring$year, hiring$total, labels=hiring$total, pos=3)
 ```
 
 ## Exportar una imagen
 
 Es posible exportar una imagen a distintos formatos (png, jpg, tiff, bmp, pdf...)
 
-```{r}
+```{r eval=FALSE}
 png(file = here("img","myplot.png"), bg = "transparent")
 plot(hiring$year, hiring$total)
 lines(hiring$year, hiring$total,
@@ -270,6 +362,8 @@ dev.off()
 ## Configuración por defecto
 
 La función `par()` permite modificar la configuración que se aplica por defecto a cada gráfica.
+
+---
 
 ```{r message=FALSE, warning=FALSE}
 old_par <- par()

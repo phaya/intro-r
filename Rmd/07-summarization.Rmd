@@ -36,7 +36,9 @@ df %>% summarise(mean(PayRate))
 Es posible incluir más de un función para realizar distintos resumenes. 
 
 ```{r}
-df %>% summarise(mean(PayRate), median(PayRate), var(PayRate))
+df %>% summarise(mean(PayRate), 
+                 median(PayRate), 
+                 var(PayRate))
 ```
 
 ---
@@ -52,7 +54,9 @@ df %>% summarise(mean(PayRate), mean(Age))
 También es posible personalizar el nombre de las columnas de la nueva tabla.
 
 ```{r}
-df %>% summarise(media=mean(PayRate), mediana=median(PayRate), var=var(PayRate))
+df %>% summarise(media=mean(PayRate), 
+                 mediana=median(PayRate), 
+                 var=var(PayRate))
 ```
 
 ## Group by
@@ -133,11 +137,12 @@ Finalmente, juntamos las dos tablas anteriores, calculamos la plantilla para cad
 
 ```{r echo=TRUE}
 library(scales)
-df_c %>% full_join(df_e, by="year") %>% 
-         mutate(despidos=ifelse(is.na(despidos), 0, despidos)) %>%
-         mutate(plantilla=contratacion-despidos) %>%
-         mutate(plantilla_1=lag(plantilla)) %>%
-         mutate(crecimiento=(plantilla-plantilla_1)/plantilla) %>%
-         mutate(crecimiento=percent(crecimiento)) %>%
-         select(year, plantilla, crecimiento)
+df_c %>% 
+    full_join(df_e, by="year") %>% 
+    mutate(despidos=ifelse(is.na(despidos), 0, despidos)) %>%
+    mutate(plantilla=contratacion-despidos) %>%
+    mutate(plantilla_1=lag(plantilla)) %>%
+    mutate(crecimiento=(plantilla-plantilla_1)/plantilla) %>%
+    mutate(crecimiento=percent(crecimiento)) %>%
+    select(year, plantilla, crecimiento)
 ```

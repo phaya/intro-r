@@ -149,7 +149,8 @@ head(df)</pre>
 <p>La función <code>read.csv()</code> es equivalente a llamar a la función <code>read.table()</code> indicando que la primera fila es la cabecera que contiene el nombre de las variables, y que el separador de celdas es la coma.</p>
 
 <pre class = 'prettyprint lang-r'>library(here)
-df &lt;- read.table(here(&quot;data&quot;, &quot;core_dataset.csv&quot;), header = TRUE, sep = &quot;,&quot;)
+df &lt;- read.table(here(&quot;data&quot;, &quot;core_dataset.csv&quot;), 
+                 header = TRUE, sep = &quot;,&quot;)
 head(df)</pre>
 
 <pre >##          Employee.Name Employee.Number State  Zip        DOB Age    Sex
@@ -318,7 +319,8 @@ glimpse(df)</pre>
 <p>Transformamos las variables que son de tipo fecha mediante la función <code>parse_cols()</code></p>
 
 <pre class = 'prettyprint lang-r'>date_cols &lt;- c(&quot;DOB&quot;, &quot;DateofHire&quot;, &quot;DateofTermination&quot;)
-df[, date_cols] &lt;- map(df[, date_cols], parse_date, &quot;%m/%d/%Y&quot;)</pre>
+df[, date_cols] &lt;- map(df[, date_cols], 
+                       parse_date, &quot;%m/%d/%Y&quot;)</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
 
@@ -326,8 +328,9 @@ df[, date_cols] &lt;- map(df[, date_cols], parse_date, &quot;%m/%d/%Y&quot;)</pr
 
 <p>Empleamos la función <code>map()</code> para ejecutar una función, en este caso <code>factor()</code> sobre un conjunto de vectores.</p>
 
-<pre class = 'prettyprint lang-r'>fct_cols &lt;- c(&quot;State&quot;,&quot;Zip&quot;, &quot;Sex&quot;, &quot;MaritalDesc&quot;, &quot;CitizenDesc&quot;, 
-              &quot;HispanicLatino&quot;, &quot;RaceDesc&quot;, &quot;ReasonForTerm&quot;, 
+<pre class = 'prettyprint lang-r'>fct_cols &lt;- c(&quot;State&quot;,&quot;Zip&quot;, &quot;Sex&quot;, &quot;MaritalDesc&quot;, 
+              &quot;CitizenDesc&quot;, &quot;HispanicLatino&quot;, 
+              &quot;RaceDesc&quot;, &quot;ReasonForTerm&quot;, 
               &quot;EmploymentStatus&quot;, &quot;Department&quot;, &quot;Position&quot;, 
               &quot;EmployeeSource&quot;, &quot;PerformanceScore&quot;)
 df[, fct_cols] &lt;- map(df[, fct_cols], factor)</pre>
@@ -390,8 +393,8 @@ df$Sex &lt;- factor(df$Sex)</pre>
 
 <p>Corregimos los valores de la variable <code>HispanicLatino</code>, y volvemos a convertir en factor.</p>
 
-<pre class = 'prettyprint lang-r'>df$HispanicLatino &lt;- str_replace(df$HispanicLatino, &quot;no&quot;, &quot;No&quot;)
-df$HispanicLatino &lt;- str_replace(df$HispanicLatino, &quot;yes&quot;, &quot;Yes&quot;)
+<pre class = 'prettyprint lang-r'>df$HispanicLatino &lt;- str_replace(df$HispanicLatino,&quot;no&quot;,&quot;No&quot;)
+df$HispanicLatino &lt;- str_replace(df$HispanicLatino,&quot;yes&quot;,&quot;Yes&quot;)
 df$HispanicLatino &lt;- factor(df$HispanicLatino)</pre>
 
 </article></slide><slide class=""><hgroup><h2></h2></hgroup><article >
@@ -447,7 +450,7 @@ df$HispanicLatino &lt;- factor(df$HispanicLatino)</pre>
 <li><a href='https://www.kaggle.com/rhuebner/human-resources-data-set' title=''>Human Resource Dataset</a>: conjunto de datos publicado en Kaggle que se utiliza para este curso</li>
 <li><a href='https://here.r-lib.org/' title=''>Documentación here</a>: paquete que permite determinar la ruta de un fichero relativa al directorio donde comienza el proyecto, e independiente de donde esté ubicado el script.</li>
 <li><a href='https://www.rdocumentation.org/packages/stringr/versions/1.3.1' title=''>Documentación stringr</a>: paquete que incluye funcionaes para manipular cadenas de caracteres (ej. <code>str_replace</code> que reemplaza una cadena por otra).</li>
-<li><a href='https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf' title=''>RStudio Import Cheatsheet</a>: los comnados más utilizados en la importación de datos.r</li>
+<li><a href='https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf' title=''>RStudio Import Cheatsheet</a>: los comanddos más utilizados en la importación de datos.</li>
 </ul></article></slide>
 
 

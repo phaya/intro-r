@@ -43,7 +43,8 @@ filter(df, MaritalDesc == "Single", Age < 30)
 Se pueden incluir operadores lógicos para realizar condiciones más complejas. 
 
 ```{r}
-filter(df, (MaritalDesc == "Single" | Age < 30) & Sex == "Male")
+filter(df, (MaritalDesc == "Single" | Age < 30) & 
+            Sex == "Male")
 ```
 
 ## Operador _pipe_
@@ -112,9 +113,9 @@ Primeramente leemos el nuevo conjunto de datos en una tabla, y lo limpiamos.
 Este conjunto tiene que compartir al menos una columna con la tabla queremos combinar. Idealmente tendría que ser una variable que fuera un identificador único.
 
 ```{r message=FALSE, warning=FALSE}
-df_prod <- read_csv(here("data", "production_staff.csv"))
-colnames(df_prod) <- str_replace_all(colnames(df_prod), "[ /-]", "")
-colnames(df_prod)
+df_pr <- read_csv(here("data", "production_staff.csv"))
+colnames(df_pr) <- str_replace_all(colnames(df_pr), "[ /-]", "")
+colnames(df_pr)
 ```
 
 ---
@@ -123,7 +124,7 @@ Comprobamos el tamaño de las dos tablas a combinar.
 
 ```{r}
 dim(df)
-dim(df_prod)
+dim(df_pr)
 ```
 
 ---
@@ -131,7 +132,7 @@ dim(df_prod)
 La función `inner_join()` crea una nueva tabla manteniendo las filas que compartan identificar en las tablas originales. Aquellas filas que no emparejan se descartan.
 
 ```{r}
-df_inner <- df %>% inner_join(df_prod, by="EmployeeName")
+df_inner <- df %>% inner_join(df_pr, by="EmployeeName")
 df_inner
 ```
 
@@ -140,7 +141,7 @@ df_inner
 Otros maneras de combinar dos tablas son _uniones externas_ mediante las funciones `left_join()`, `right_join()` y `full_join()`. 
 
 ```{r}
-df_full <- df %>% full_join(df_prod, by = "EmployeeName")
+df_full <- df %>% full_join(df_pr, by = "EmployeeName")
 dim(df_full)
 dim(df_inner)
 ```
@@ -164,14 +165,18 @@ Aquellas columnas que tuvieran el mismo nombre se duplican añadiendo el prefijo
 Esto es un indicador de mala organización del conjunto de datos, o del mala elección del nombre de las columnas en las tablas originales.
 
 ```{r}
-cols <- df %>% inner_join(df_prod, by="EmployeeName") %>% colnames()
+cols <- df %>% 
+        inner_join(df_prod, by="EmployeeName") %>% 
+        colnames()
 cols
 ```
 
 ---
 
 ```{r}
-df <- df %>% inner_join(df_prod, by="EmployeeName") %>% select(-contains(".y"))
+df <- df %>% 
+      inner_join(df_prod, by="EmployeeName") %>% 
+      select(-contains(".y"))
 colnames(df) <- str_replace_all(colnames(df), "\\.x", "")
 colnames(df)
 ```
