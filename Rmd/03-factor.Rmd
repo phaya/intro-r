@@ -99,18 +99,11 @@ levels(f)
 
 ## cut
 
-La función `cut()` nos ayuda a convertir una variable númerica en factores. El parámetro `breaks` indica el número de intervalos, o los puntos de corte.
+La función `cut()` nos ayuda a convertir una variable númerica en factores. El parámetro `breaks` indica los puntos de corte.
 
 ```{r}
 x <- runif(1000, 0, 10)
 length(x)
-f <- cut(x, breaks=4)
-summary(f)
-```
-
----
-
-```{r}
 f <- cut(x, breaks=c(0, 5, 7, 9, 10), 
             labels=c("SUSPENSO", "APROBADO", 
                      "NOTABLE", "SOBRESALIENTE"))

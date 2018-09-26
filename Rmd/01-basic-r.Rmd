@@ -126,9 +126,9 @@ La líneas que comienzan con `#` son ignoradas por R, y permiten añadir al cód
 a <- 1
 b <- -5
 c <- 6
-discrimante <- sqrt(b**2-4*a*c)
-sol1 <- (-b + discrimante) / (2*a)
-sol2 <- (-b - discrimante) / (2*a)
+discriminante <- sqrt(b**2-4*a*c)
+sol1 <- (-b + discriminante) / (2*a)
+sol2 <- (-b - discriminante) / (2*a)
 cat(sol1, sol2)
 ```
 

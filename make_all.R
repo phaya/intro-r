@@ -25,8 +25,6 @@ map(img_urls, download_image)
 
 slides <- list.files(here("Rmd"), pattern="^[[:digit:]]")
 
-slides <- c("08-plot.Rmd")
-
 ################################################################################
 # Render slides to pdfs
 ################################################################################
@@ -68,20 +66,6 @@ render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
 ################################################################################
 
 render(here("Rmd","README.Rmd"), "html_document", output_dir=here("html"))
-
-################################################################################
-# Render README to pdf
-################################################################################
-
-
-render(here("Rmd","README.Rmd"), 
-       beamer_presentation(theme= "CambridgeUS",
-                           colortheme= "orchid",
-                           fonttheme= "structurebold",
-                           keep_tex= TRUE
-                           ),
-       output_dir=here())
-
 
 ################################################################################
 # Render script
