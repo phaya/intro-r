@@ -98,21 +98,21 @@ IBM también integra `R` en sus productos orientados a ciencia de datos como [IB
 
 ## Temario del curso
 
-* Preparacion: instalación y configuración del entorno ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/00-setup.html))
+* Preparacion: instalación y configuración del entorno ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/00-setup.html))
 
 ### Primera parte
 
-* Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/01-basic-r.html))
-* Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/02-vector.html))
-* Factores ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/03-factor.html))
-* _Data Frames_ ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/04-dataframe.html))
+* Primeros pasos ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/01-basic-r.html))
+* Vectores ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/02-vector.html))
+* Factores ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/03-factor.html))
+* _Data Frames_ ó tablas ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/04-dataframe.html))
 
 ### Segunda parte
 
-* Leer y escribir ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/05-io.html))
-* Manipulación de datos ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/06-manipulation.html))
-* Agregar y resumir ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/07-summarization.html))
-* Visualizar ([html](https://cdn.rawgit.com/phaya/intro-r/devel/html/08-plot.html))
+* Leer y escribir ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/05-io.html))
+* Manipulación de datos ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/06-manipulation.html))
+* Agregar y resumir ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/07-summarization.html))
+* Visualizar ([html](https://cdn.rawgit.com/phaya/intro-r/master/html/08-plot.html))
 
 ## Enlaces y material adicional
 
