@@ -59,13 +59,13 @@ for (file in slides) {
 # Render README to gitbub README 
 ################################################################################
 
-render(here("Rmd","README.Rmd"), "md_document", output_dir=here())
+render(here("Rmd","README.Rmd"), "md_document", encoding = "UTF-8", output_dir=here())
 
 ################################################################################
 # Render README to html
 ################################################################################
 
-render(here("Rmd","README.Rmd"), "html_document", output_dir=here("html"))
+render(here("Rmd","README.Rmd"), "html_document", encoding = "UTF-8", output_dir=here("html"))
 
 ################################################################################
 # Render script

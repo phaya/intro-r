@@ -90,7 +90,7 @@ Fuente: [The RedMonk Programming Language Rankings: June 2018](https://redmonk.c
 
 ## ¿Quién usa R?
 
-Grandes compañias como Microsoft han apostado fuerte por `R`. Microsoft mantiene su propia versión del intérprete del lenguaje [Microsoft Open R](https://mran.microsoft.com/open), y su propio [repositorio de paquetes](https://mran.microsoft.com/) basado en CRAN.
+Grandes compañías como Microsoft han apostado fuerte por `R`. Microsoft mantiene su propia versión del intérprete del lenguaje [Microsoft Open R](https://mran.microsoft.com/open), y su propio [repositorio de paquetes](https://mran.microsoft.com/) basado en CRAN.
 
 IBM también integra `R` en sus productos orientados a ciencia de datos como [IBM Data Science Experience](IBM Data Science Experience).  
 
