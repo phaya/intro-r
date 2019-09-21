@@ -39,6 +39,14 @@ dim(df)
 
 ---
 
+Una opción muy visual para explorar la tabla nos la da la función ``View()`.
+
+```{r}
+View(df)
+```
+
+---
+
 Por defecto, las cadenas de caracteres se convierten en factores. 
 
 Si se quiere deshabilitar este comportamiento es preciso emplear el parámetro `stringAsFactors=FALSE`, e indicar explícitamente que columnas son factores.

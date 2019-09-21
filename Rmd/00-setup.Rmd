@@ -2,6 +2,7 @@
 title: "Preparacion"
 subtitle: "HR Analytics: Teoría y Práctica"
 author: "http://pablohaya.com/contact"
+date: "09/2018"
 output:
   beamer_presentation: default
   ioslides_presentation: default

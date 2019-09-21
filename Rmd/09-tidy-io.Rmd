@@ -1,0 +1,179 @@
+---
+title: "Leer y escribir datos"
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "http://pablohaya.com/contact"
+date: "09/2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Leer un archivo CSV
+
+R permite leer los formatos más populares (csv, json, xml, xls, xlsx...). 
+
+El formato **CSV** (comma-separated values) almacena tablas donde cada fila ocupa una línea, y las columnas se separan por comas.
+
+```{r message=FALSE, warning=FALSE}
+library(here)
+df <- read.csv(here("data", "core_dataset.csv"))
+head(df)
+```
+
+---
+
+La función `read.csv()` es equivalente a llamar a la función `read.table()` indicando que la primera fila es la cabecera que contiene el nombre de las variables, y que el separador de celdas es la coma.
+
+```{r}
+library(here)
+df <- read.table(here("data", "core_dataset.csv"), 
+                 header = TRUE, sep = ",")
+head(df)
+```
+
+## Lectura avanzada
+
+El paquete `tidyverse()` incluye funciones mejoradas para importar datos. La función `read_csv()` permite leer un fichero csv siendo más rápida y versatil que la función por defecto. La función `read_delim()` es su versión más genérica.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+df <- read_csv(here("data","core_dataset.csv"))
+glimpse(df)
+```
+
+---
+
+La función `read_csv()` devuelve un tipo de datos `tibble` que es una versión mejorada del `data.frame` que viene por defecto.
+
+```{r}
+class(df)
+head(df)
+```
+
+## Limpieza del conjunto de datos
+
+Es habitual que los conjuntos de datos que nos faciliten tengan errores de formato que dificulten el análisis. Vamos a ver un ejemplo sobre este conjunto de datos.
+
+Una vez leido, comprobamos las columnas que tiene, y el tipo de dato de cada una.
+
+```{r message=FALSE, warning=FALSE}
+glimpse(df)
+```
+
+---
+
+Los nombres de las columnas solo deberían tener caracteres alfanuméricos. No deberían contener espacios, aunque si se permite `_` como separador.
+
+Así que renombramos las columnas eleminándolos.
+
+```{r message=FALSE, warning=FALSE}
+colnames(df) <- str_replace_all(colnames(df), "[ /]", "")
+glimpse(df)
+```
+
+---
+
+El formato estándar de fecha es "YYYY-mm-dd". En caso contrario, se interpretan como una cadena de caracteres.
+
+Transformamos las variables que son de tipo fecha mediante la función `parse_cols()`
+
+```{r}
+date_cols <- c("DOB", "DateofHire", "DateofTermination")
+df[, date_cols] <- map(df[, date_cols], 
+                       parse_date, "%m/%d/%Y")
+```
+
+---
+
+La función `read_csv()` evita definir factores, de manera que es el usuario el que explícitamente indica que lo son.
+
+Empleamos la función `map()` para ejecutar una función, en este caso `factor()` sobre un conjunto de vectores. 
+
+```{r}
+fct_cols <- c("State","Zip", "Sex", "MaritalDesc", 
+              "CitizenDesc", "HispanicLatino", 
+              "RaceDesc", "ReasonForTerm", 
+              "EmploymentStatus", "Department", "Position", 
+              "EmployeeSource", "PerformanceScore")
+df[, fct_cols] <- map(df[, fct_cols], factor)
+```
+---
+
+```{r}
+glimpse(df)
+```
+
+---
+
+Comprobamos todos los niveles de los factores que hemos convertido, y nos damos cuenta que hay problemas con los valores en `Sex` y en `HispanicLatino`.
+
+```{r eval=FALSE, results="hide"}
+map(df[, fct_cols], table)
+glimpse(df)
+```
+
+```{r}
+table(df$Sex)
+table(df$HispanicLatino)
+```
+
+---
+
+Corregimos los valores del género, y volvemos a convertir en factor.
+
+```{r}
+df$Sex <- str_replace(df$Sex, "^m", "M")
+df$Sex <- factor(df$Sex)
+```
+
+---
+
+Corregimos los valores de la variable `HispanicLatino`, y volvemos a convertir en factor.
+
+```{r size="small"}
+df$HispanicLatino <- str_replace(df$HispanicLatino,"no","No")
+df$HispanicLatino <- str_replace(df$HispanicLatino,"yes","Yes")
+df$HispanicLatino <- factor(df$HispanicLatino)
+```
+
+---
+
+```{r}
+glimpse(df)
+```
+
+## Escribir datos
+
+Se pueden emplear para escribir en formato csv las funciones equivalentes `write.csv()` y `write.table()` 
+
+```{r}
+write.csv(df, file = here("data","core_dataset_clean.csv"))
+```
+
+---
+
+De la misma manera, se pueden emplear las funciones para exportar datos `write_csv()` y `write_delim()` del paquete `tidyverse`
+
+```{r}
+write_csv(df,  here("data","core_dataset_clean.csv"))
+```
+
+## Guardar datos binarios
+
+Si se quieren guardar datos de manera temporal es más efectivo emplear la función `save()` que los guarda en binario. Veremos en el siguiente tema como se recupera con la función `load()`.
+
+```{r}
+save(df, file = here("data","core_dataset_clean.RData"))
+```
+
+## Referencias y recursos online
+
+* [How to share data with a statiscian](https://github.com/jtleek/datasharing): resumen de cómo organizar el conjunto de datos, y los metadatos asociados para que sea más sencillo realizar los análisis.
+* [Human Resource Dataset](https://www.kaggle.com/rhuebner/human-resources-data-set): conjunto de datos publicado en Kaggle que se utiliza para este curso
+* [Documentación here](https://here.r-lib.org/): paquete que permite determinar la ruta de un fichero relativa al directorio donde comienza el proyecto, e independiente de donde esté ubicado el script.
+* [Documentación stringr](https://www.rdocumentation.org/packages/stringr/versions/1.3.1): paquete que incluye funcionaes para manipular cadenas de caracteres (ej. `str_replace` que reemplaza una cadena por otra).
+* [RStudio Import Cheatsheet](https://rawgit.com/rstudio/cheatsheets/master/data-import.pdf): los comanddos más utilizados en la importación de datos.

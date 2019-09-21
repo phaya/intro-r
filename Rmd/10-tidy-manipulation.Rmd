@@ -1,0 +1,224 @@
+---
+title: "Manipulación de datos"
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "http://pablohaya.com/contact"
+date: "09/2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Importamos los datos
+
+Empleamos la funcion `load()` para cargar la tabla que habíamos preparado en el tema anterior.
+
+```{r message=FALSE, warning=FALSE}
+library(tidyverse)
+library(here)
+load(here("data","core_dataset_clean.RData"))
+```
+
+## Filtrar
+
+El verbo `filter()` permite quedarse un subconjunto de las filas de un tabla.
+
+```{r}
+filter(df, MaritalDesc == "Single")
+```
+
+---
+
+Es posible combinar más de un filtro separando las nuevas condiciones por comas.
+
+```{r}
+filter(df, MaritalDesc == "Single", Age < 30)
+```
+
+---
+
+Se pueden incluir operadores lógicos para realizar condiciones más complejas. 
+
+```{r}
+filter(df, (MaritalDesc == "Single" | Age < 30) & 
+            Sex == "Male")
+```
+
+## Operador _pipe_
+
+Un operador muy útil que permite encadenar distintas manipulaciones es `%>%`. Este operador índica el flujo de datos de manera que la salida de una operación se emplea como entrada de la siguente.
+
+```{r}
+df %>% filter(MaritalDesc == "Single") %>% filter(Age < 30)
+```
+
+## Seleccionar
+
+El verbo `select()` devuelve una nueva tabla con las columnas seleccionadas. 
+
+```{r}
+df %>% filter(MaritalDesc == "Single") %>% 
+       filter(Age < 30) %>%
+       select(EmployeeName, State, MaritalDesc, Age)
+```
+
+--
+
+Se puede emplear `contains()` para obtener los columnas que compartan nombre.
+
+```{r}
+df %>% filter(MaritalDesc == "Single") %>% 
+       filter(Age < 30) %>%
+       select(contains("Name"), State)
+```
+
+## Ordenar
+
+El verbo `arrange()` ordena la tabla según las columnas que se le indiquen.
+
+```{r}
+df %>% filter(MaritalDesc == "Single") %>% 
+       filter(Age < 30) %>%
+       select(State, Age, MaritalDesc) %>%
+       arrange(Age, State)
+```
+
+---
+
+Mediante `desc()` es posible cambiar el criterio de ordenación de manera que ordene mayor a menor, en vez de de la ordenación por defecto que es ascendente. 
+
+```{r}
+df %>% filter(MaritalDesc == "Single") %>% 
+       filter(Age < 30) %>%
+       select(State, Age, MaritalDesc) %>%
+       arrange(desc(Age), State)
+```
+
+## Modificar 
+
+El verbo `mutate()` permite añadir nuevas variables a la tabla.
+
+```{r}
+df %>% mutate(Days = Sys.Date() - DateofHire) %>%
+       select(Age, Days)
+```
+
+## Combinando tablas
+
+Primeramente leemos el nuevo conjunto de datos en una tabla, y lo limpiamos. 
+
+Este conjunto tiene que compartir al menos una columna con la tabla queremos combinar. Idealmente tendría que ser una variable que fuera un identificador único.
+
+```{r message=FALSE, warning=FALSE}
+df_pr <- read_csv(here("data", "production_staff.csv"))
+colnames(df_pr) <- str_replace_all(colnames(df_pr), "[ /-]", "")
+colnames(df_pr)
+df_pr$Pay <- as.numeric(str_replace(df_pr$Pay,"\\$",""))
+write_csv(df_pr,  here("data","production_staff_clean.csv"))
+```
+
+---
+
+Eliminamos el símbolo `$` de la columna `Pay`.
+
+```{r message=FALSE, warning=FALSE}
+df_pr$Pay <- as.numeric(str_replace(df_pr$Pay,"\\$",""))
+```
+
+---
+
+El formato estándar de fecha es "YYYY-mm-dd". En caso contrario, se interpretan como una cadena de caracteres.
+
+Transformamos las variables que son de tipo fecha mediante la función `parse_cols()`
+
+```{r}
+date_cols <- c("DateofHire", "TermDate")
+df_pr[, date_cols] <- map(df_pr[, date_cols], 
+                        parse_date, "%m/%d/%Y")
+```
+
+---
+
+Escribimos nuevo fichero con el conjunto de datos limpio.
+
+```{r}
+write_csv(df_pr,  here("data","production_staff_clean.csv"))
+```
+
+---
+
+Comprobamos el tamaño de las dos tablas a combinar.
+
+```{r}
+dim(df)
+dim(df_pr)
+```
+
+---
+
+La función `inner_join()` crea una nueva tabla manteniendo las filas que compartan identificar en las tablas originales. Aquellas filas que no emparejan se descartan.
+
+```{r}
+df_inner <- df %>% inner_join(df_pr, by="EmployeeName")
+df_inner
+```
+
+---
+
+Otros maneras de combinar dos tablas son _uniones externas_ mediante las funciones `left_join()`, `right_join()` y `full_join()`. 
+
+```{r}
+df_full <- df %>% full_join(df_pr, by = "EmployeeName")
+dim(df_full)
+dim(df_inner)
+```
+
+---
+
+Los valores invalidos (`NA`) en la columna `DailyErrorRate` difieren en ambos casos, ya que esta columna sólo está completada para los empleados que se encuentran en el conjunto de datos `production_staff.csv`.
+
+Al unir completamente ambas tablas, se rellena con `NA` en esa columna aquellos empleados de la primera tabla que no estuvieran en la segunda. 
+
+```{r}
+sum(is.na(df_full$DailyErrorRate))
+sum(is.na(df_inner$DailyErrorRate))
+```
+---
+
+Independientemente del tipo de union, se conservan todas las columnas de ambas tablas. 
+
+Aquellas columnas que tuvieran el mismo nombre se duplican añadiendo el prefijo `.x` o `.y` al nuevo de nombre para localizar a que tabla corresponden.
+
+Esto es un indicador de mala organización del conjunto de datos, o del mala elección del nombre de las columnas en las tablas originales.
+
+```{r}
+cols <- df %>% 
+        inner_join(df_prod, by="EmployeeName") %>% 
+        colnames()
+cols
+```
+
+---
+
+```{r}
+df <- df %>% 
+      inner_join(df_prod, by="EmployeeName") %>% 
+      select(-contains(".y"))
+colnames(df) <- str_replace_all(colnames(df), "\\.x", "")
+colnames(df)
+```
+
+---
+
+Guardamos la nueva tabla con las variables completas para cada empleado.
+
+```{r}
+save(df, file = here("data","join_dataset_clean.RData"))
+```
+
+## Referencias
+
+* [RStudio tidyverse Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf): resumen de cómo utilizar el paquete `dplyr`, incluido dentro de `tidyverse`, y que contiene todas las funciones empleadas para manipular datos de este tema.

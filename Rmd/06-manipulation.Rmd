@@ -17,178 +17,167 @@ knitr::opts_chunk$set(echo = TRUE)
 Empleamos la funcion `load()` para cargar la tabla que habíamos preparado en el tema anterior.
 
 ```{r message=FALSE, warning=FALSE}
-library(tidyverse)
 library(here)
 load(here("data","core_dataset_clean.RData"))
 ```
 
 ## Filtrar
 
-El verbo `filter()` permite quedarse un subconjunto de las filas de un tabla.
+La función `subset()` permite quedarse un subconjunto de las filas de un tabla.
 
 ```{r}
-filter(df, MaritalDesc == "Single")
+subset(df, MaritalDesc == "Single") 
+```
+
+---
+De manera equivalente podemos emplear filtrar como ya vimos.
+
+```{r}
+df[df$MaritalDesc == "Single", ]
 ```
 
 ---
 
-Es posible combinar más de un filtro separando las nuevas condiciones por comas.
+Es posible combinar más de un filtro mediante el operador lógico `&`.
 
 ```{r}
-filter(df, MaritalDesc == "Single", Age < 30)
+subset(df, MaritalDesc == "Single" & Age < 30)
+```
+
+---
+O su versión equivalente.
+
+```{r}
+df[MaritalDesc == "Single" & Age < 30, ]
 ```
 
 ---
 
-Se pueden incluir operadores lógicos para realizar condiciones más complejas. 
+Se pueden combinar operadores lógicos para realizar condiciones más complejas. 
 
 ```{r}
-filter(df, (MaritalDesc == "Single" | Age < 30) & 
+subset(df, (MaritalDesc == "Single" | Age < 30) & 
             Sex == "Male")
-```
-
-## Operador _pipe_
-
-Un operador muy útil que permite encadenar distintas manipulaciones es `%>%`. Este operador índica el flujo de datos de manera que la salida de una operación se emplea como entrada de la siguente.
-
-```{r}
-df %>% filter(MaritalDesc == "Single") %>% filter(Age < 30)
 ```
 
 ## Seleccionar
 
-El verbo `select()` devuelve una nueva tabla con las columnas seleccionadas. 
+La función `subset()` admite el parámetro ``select()` que devuelve una nueva tabla con las columnas seleccionadas. 
 
 ```{r}
-df %>% filter(MaritalDesc == "Single") %>% 
-       filter(Age < 30) %>%
-       select(EmployeeName, State, MaritalDesc, Age)
-```
-
---
-
-Se puede emplear `contains()` para obtener los columnas que compartan nombre.
-
-```{r}
-df %>% filter(MaritalDesc == "Single") %>% 
-       filter(Age < 30) %>%
-       select(contains("Name"), State)
-```
-
-## Ordenar
-
-El verbo `arrange()` ordena la tabla según las columnas que se le indiquen.
-
-```{r}
-df %>% filter(MaritalDesc == "Single") %>% 
-       filter(Age < 30) %>%
-       select(State, Age, MaritalDesc) %>%
-       arrange(Age, State)
+subset(df, MaritalDesc == "Single" | Age < 30, 
+       select=c(EmployeeName, MaritalDesc, Age))
 ```
 
 ---
 
-Mediante `desc()` es posible cambiar el criterio de ordenación de manera que ordene mayor a menor, en vez de de la ordenación por defecto que es ascendente. 
+Empleando la notación equivalente.
 
 ```{r}
-df %>% filter(MaritalDesc == "Single") %>% 
-       filter(Age < 30) %>%
-       select(State, Age, MaritalDesc) %>%
-       arrange(desc(Age), State)
+df[df$MaritalDesc == "Single" | df$Age < 30, 
+   c("EmployeeName", "MaritalDesc", "Age")]
 ```
 
-## Modificar 
-
-El verbo `mutate()` permite añadir nuevas variables a la tabla.
+---
+Se puede definir un rango de columnas consecutivas.
 
 ```{r}
-df %>% mutate(Days = Sys.Date() - DateofHire) %>%
-       select(Age, Days)
-```
-
-## Combinando tablas
-
-Primeramente leemos el nuevo conjunto de datos en una tabla, y lo limpiamos. 
-
-Este conjunto tiene que compartir al menos una columna con la tabla queremos combinar. Idealmente tendría que ser una variable que fuera un identificador único.
-
-```{r message=FALSE, warning=FALSE}
-df_pr <- read_csv(here("data", "production_staff.csv"))
-colnames(df_pr) <- str_replace_all(colnames(df_pr), "[ /-]", "")
-colnames(df_pr)
+subset(df, MaritalDesc == "Single" | Age < 30, 
+       select=c(EmployeeNumber:DOB))
 ```
 
 ---
 
-Comprobamos el tamaño de las dos tablas a combinar.
+Se puede indicar aquellas columnas que se quieren descartar.
 
 ```{r}
-dim(df)
-dim(df_pr)
+subset(df, MaritalDesc == "Single" | Age < 30, 
+       select=c(-EmployeeName))
 ```
 
 ---
 
-La función `inner_join()` crea una nueva tabla manteniendo las filas que compartan identificar en las tablas originales. Aquellas filas que no emparejan se descartan.
+Otra opción más farragosa.
 
 ```{r}
-df_inner <- df %>% inner_join(df_pr, by="EmployeeName")
-df_inner
+df[df$MaritalDesc == "Single" | df$Age < 30, 
+   ! colnames(df) %in% "EmployeeName"]
 ```
 
 ---
 
-Otros maneras de combinar dos tablas son _uniones externas_ mediante las funciones `left_join()`, `right_join()` y `full_join()`. 
+Cuidado que el orden de los factores aquí si altera el producto.
 
 ```{r}
-df_full <- df %>% full_join(df_pr, by = "EmployeeName")
-dim(df_full)
-dim(df_inner)
+colnames(df) %in% "EmployeeName"
+"EmployeeName" %in% colnames(df)
 ```
 
 ---
 
-Los valores invalidos (`NA`) en la columna `DailyErrorRate` difieren en ambos casos, ya que esta columna sólo está completada para los empleados que se encuentran en el conjunto de datos `production_staff.csv`.
-
-Al unir completamente ambas tablas, se rellena con `NA` en esa columna aquellos empleados de la primera tabla que no estuvieran en la segunda. 
+Una opción más drástica es eliminar una variable por completo
 
 ```{r}
-sum(is.na(df_full$DailyErrorRate))
-sum(is.na(df_inner$DailyErrorRate))
+df$EmployeeName <- NULL
+colnames(df)
 ```
----
 
-Independientemente del tipo de union, se conservan todas las columnas de ambas tablas. 
+## Modificar el contenido de la tabla
 
-Aquellas columnas que tuvieran el mismo nombre se duplican añadiendo el prefijo `.x` o `.y` al nuevo de nombre para localizar a que tabla corresponden.
-
-Esto es un indicador de mala organización del conjunto de datos, o del mala elección del nombre de las columnas en las tablas originales.
+Se puede modificar el contenido de todo una columna sin más que asignarle un nuevo valor.
 
 ```{r}
-cols <- df %>% 
-        inner_join(df_prod, by="EmployeeName") %>% 
-        colnames()
-cols
+df$Sex <- "Female"
+df[,1:6]
 ```
 
 ---
 
+Una operación habitual es cambiar el tipo de datos de un columna. 
+
 ```{r}
-df <- df %>% 
-      inner_join(df_prod, by="EmployeeName") %>% 
-      select(-contains(".y"))
-colnames(df) <- str_replace_all(colnames(df), "\\.x", "")
+class(df$EmployeeName)
+```
+
+```{r}
+df$EmployeeName <- as.character(df$EmployeeName)
+```
+
+---
+
+Si queremos asignar un valor distinto a cada celda es preciso disponer de un vector de igual longitud que número de filas.
+
+```{r}
+df$Sex <- sample(c("Female","Male"), nrow(df), replace = TRUE)
+df[,1:6]
+```
+
+---
+
+Es posible modificar el contenido de una única celda también.
+
+```{r}
+df[1, c("EmployeeName")] <- "White, Walter"
+```
+
+## Modificar el nombre de una columna
+
+La función `colnames()` accede al nombre de las columnas.
+
+```{r}
 colnames(df)
 ```
 
 ---
 
-Guardamos la nueva tabla con las variables completas para cada empleado.
+Reasignando un vector con nuevos nombres es posible modificarlas.
 
 ```{r}
-save(df, file = here("data","join_dataset_clean.RData"))
+colnames(df)[1:3] <- c("NombreEmpleado", "NumeroEmpleado", "Estado") 
+colnames(df)
 ```
+
 
 ## Referencias
 
-* [RStudio tidyverse Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-transformation.pdf): resumen de cómo utilizar el paquete `dplyr`, incluido dentro de `tidyverse`, y que contiene todas las funciones empleadas para manipular datos de este tema.
+* [Quick-R Data Management](https://www.statmethods.net/management/index.html): resumen de cómo manipular datos con las funciones estándar de R.

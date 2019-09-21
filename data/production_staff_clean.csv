@@ -1,0 +1,210 @@
+EmployeeName,RaceDesc,DateofHire,TermDate,ReasonforTerm,EmploymentStatus,Department,Position,Pay,ManagerName,PerformanceScore,AbutmentsHourWk1,AbutmentsHourWk2,DailyErrorRate,90dayComplaints
+"Albert, Michael",White,2011-08-01,NA,N/A - still employed,Active,Production,Production Manager,54.5,Elisa Bramante,Fully Meets,0,0,0,0
+"Bozzi, Charles",Asian,2013-09-30,2014-08-07,retiring,Voluntarily Terminated,Production,Production Manager,50.5,Elisa Bramante,Fully Meets,0,0,0,0
+"Butler, Webster  L",White,2016-01-28,NA,N/A - still employed,Active,Production,Production Manager,55,Elisa Bramante,Exceeds,0,0,0,0
+"Dunn, Amy",White,2014-09-18,NA,N/A - still employed,Active,Production,Production Manager,51,Elisa Bramante,Fully Meets,0,0,0,0
+"Gray, Elijiah",White,2015-06-02,NA,N/A - still employed,Active,Production,Production Manager,54,Elisa Bramante,Fully Meets,0,0,0,0
+"Hogland, Jonathan",White,2011-01-10,2015-12-12,attendance,Terminated for Cause,Production,Production Manager,48,Elisa Bramante,Fully Meets,0,0,0,0
+"Immediato, Walter",Asian,2011-02-21,2012-09-24,unhappy,Voluntarily Terminated,Production,Production Manager,42,Elisa Bramante,Needs Improvement,0,0,0,0
+"Liebig, Ketsia",White,2013-09-30,NA,N/A - still employed,Active,Production,Production Manager,55,Elisa Bramante,Exceeds,0,0,0,0
+"Miller, Brannon",Hispanic,2012-08-16,NA,N/A - still employed,Active,Production,Production Manager,53,Elisa Bramante,Fully Meets,0,0,0,0
+"Peterson, Ebonee",White,2010-10-25,2016-05-18,Another position,Voluntarily Terminated,Production,Production Manager,38,Elisa Bramante,Fully Meets,0,0,0,0
+"Spirea, Kelley",White,2012-10-02,NA,N/A - still employed,Active,Production,Production Manager,52,Elisa Bramante,Fully Meets,0,0,0,0
+"Stanley, David",White,2010-07-20,NA,N/A - still employed,Active,Production,Production Manager,53,Elisa Bramante,Needs Improvement,0,0,0,0
+"Sullivan, Kissy",Black or African American,2009-01-08,NA,N/A - still employed,Active,Production,Production Manager,55,Elisa Bramante,Fully Meets,0,0,0,0
+"Wallace, Courtney  E",Black or African American,2011-09-26,2012-01-02,Another position,Voluntarily Terminated,Production,Production Manager,33.5,Elisa Bramante,Fully Meets,0,0,0,0
+"Adinolfi, Wilson  K",White,2011-07-05,NA,N/A - still employed,Active,Production,Production Technician I,20,Michael Albert,Exceeds,15,17,0,0
+"Alagbe,Trina",White,2008-01-07,NA,N/A - still employed,Active,Production,Production Technician I,21,Elijiah Gray,Fully Meets,8,10,1,0
+"Anderson, Carol",White,2011-07-11,2011-09-06,return to school,Voluntarily Terminated,Production,Production Technician I,16,Webster Butler,N/A- too early to review,6,8,3,1
+"Anderson, Linda",White,2012-01-09,NA,N/A - still employed,Active,Production,Production Technician I,23,Amy Dunn,Exceptional,19,19,0,0
+"Athwal, Sam",White,2013-09-30,NA,N/A - still employed,Active,Production,Production Technician I,22,Ketsia Liebig,N/A- too early to review,6,6,1,0
+"Bachiochi, Linda",Two or more races,2009-07-06,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,22,Brannon Miller,Fully Meets,10,10,0,0
+"Baczenski, Rachael",Hispanic,2011-01-10,2011-01-12,Another position,Voluntarily Terminated,Production,Production Technician I,17,David Stanley,N/A- too early to review,5,7,3,2
+"Barbara, Thomas",Asian,2012-04-02,2012-09-19,unhappy,Voluntarily Terminated,Production,Production Technician I,22,Kissy Sullivan,90-day meets,5,8,0,0
+"Barone, Francesco  A",Two or more races,2012-02-20,NA,N/A - still employed,Active,Production,Production Technician I,16.76,Kelley Spirea,Fully Meets,10,10,0,0
+"Barton, Nader",White,2012-09-24,2013-04-06,Another position,Voluntarily Terminated,Production,Production Technician I,18,Michael Albert,Fully Meets,12,12,0,0
+"Beatrice, Courtney",White,2011-04-04,NA,N/A - still employed,Active,Production,Production Technician I,22,Elijiah Gray,Fully Meets,9,10,1,0
+"Becker, Scott",Asian,2013-07-08,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,17,Webster Butler,Fully Meets,8,9,0,0
+"Bernstein, Sean",White,2012-04-02,NA,N/A - still employed,Active,Production,Production Technician I,16,Amy Dunn,Fully Meets,10,12,1,0
+"Biden, Lowan  M",Asian,2013-08-19,NA,N/A - still employed,Active,Production,Production Technician I,22,Ketsia Liebig,Fully Meets,12,13,1,0
+"Billis, Helen",White,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician I,16,Brannon Miller,Exceeds,16,15,0,0
+"Brill, Donna",White,2012-04-02,2013-06-15,Another position,Voluntarily Terminated,Production,Production Technician I,20,David Stanley,Fully Meets,9,10,1,1
+"Bugali, Josephine",Black or African American,2013-11-11,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,20,Kissy Sullivan,Fully Meets,13,15,1,0
+"Carey, Michael",Black or African American,2014-03-31,NA,N/A - still employed,Active,Production,Production Technician I,20,Kelley Spirea,Fully Meets,11,12,1,0
+"Chace, Beatrice",White,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician I,16,Michael Albert,Fully Meets,13,14,0,0
+"Chan, Lin",White,2014-05-12,NA,N/A - still employed,Active,Production,Production Technician I,19.5,Elijiah Gray,Fully Meets,13,13,0,0
+"Chang, Donovan  E",White,2013-07-08,NA,N/A - still employed,Active,Production,Production Technician I,22,Webster Butler,Fully Meets,8,10,1,0
+"Chivukula, Enola",White,2011-06-27,2015-11-15,relocation out of area,Voluntarily Terminated,Production,Production Technician I,21,Amy Dunn,90-day meets,6,7,3,0
+"Cierpiszewski, Caroline",Black or African American,2011-10-03,NA,N/A - still employed,Active,Production,Production Technician I,22,Ketsia Liebig,Fully Meets,12,14,1,0
+"Clukey, Elijian",White,2016-07-06,NA,N/A - Has not started yet,Future Start,Production,Production Technician I,24.75,Brannon Miller,Exceeds,16,16,0,0
+"Cockel, James",White,2013-07-08,NA,N/A - still employed,Active,Production,Production Technician I,15,David Stanley,Fully Meets,11,12,1,0
+"Cole, Spencer",Black or African American,2011-07-11,2012-09-23,performance,Terminated for Cause,Production,Production Technician I,15,Kissy Sullivan,Needs Improvement,4,5,3,1
+"Cornett, Lisa",White,2015-01-05,NA,N/A - still employed,Active,Production,Production Technician I,15.75,Kelley Spirea,90-day meets,6,7,1,0
+"Crimmings,   Jean",White,2016-07-06,NA,N/A - Has not started yet,Future Start,Production,Production Technician I,19.75,Michael Albert,N/A- too early to review,9,10,2,2
+"Darson, Jene'ya",White,2012-07-02,NA,N/A - still employed,Active,Production,Production Technician I,15,Elijiah Gray,Fully Meets,11,12,1,0
+"DeGweck,  James",White,2011-05-16,2015-06-08,unhappy,Voluntarily Terminated,Production,Production Technician I,23.5,Webster Butler,Fully Meets,13,15,1,0
+"Desimone, Carl",White,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician I,20,Amy Dunn,PIP,3,3,3,3
+"Dickinson, Geoff",White,2014-05-12,NA,N/A - still employed,Active,Production,Production Technician I,21,Ketsia Liebig,Fully Meets,13,12,0,0
+"DiNocco, Lily",Black or African American,2013-01-07,NA,N/A - still employed,Active,Production,Production Technician I,22,Brannon Miller,Needs Improvement,5,2,4,2
+"Dobrin, Denisa  S",White,2012-04-02,NA,N/A - still employed,Active,Production,Production Technician I,16.75,David Stanley,Fully Meets,13,14,1,1
+"Eaton, Marianne",White,2011-04-04,2013-06-06,military,Voluntarily Terminated,Production,Production Technician I,17,Kissy Sullivan,Fully Meets,11,12,1,0
+"Engdahl, Jean",White,2014-11-10,NA,N/A - still employed,Active,Production,Production Technician I,21.25,Kelley Spirea,Fully Meets,10,12,1,0
+"England, Rex",White,2014-03-31,NA,N/A - still employed,Active,Production,Production Technician I,21,Kelley Spirea,90-day meets,6,7,0,0
+"Estremera, Miguel",White,2012-04-02,2014-09-27,attendance,Terminated for Cause,Production,Production Technician I,17,Michael Albert,Needs Improvement,4,5,3,2
+"Evensen, April",White,2014-02-17,2014-02-25,"no-call, no-show",Terminated for Cause,Production,Production Technician I,18,Elijiah Gray,N/A- too early to review,5,4,2,0
+"Ferguson, Susan",White,2011-11-07,2014-05-17,military,Voluntarily Terminated,Production,Production Technician I,20,Webster Butler,Fully Meets,11,10,1,0
+"Fernandes, Nilson",White,2015-05-11,NA,N/A - still employed,Active,Production,Production Technician I,18,Amy Dunn,N/A- too early to review,4,6,1,0
+"Ferreira, Violeta",White,2012-02-20,NA,N/A - still employed,Active,Production,Production Technician I,23,Ketsia Liebig,Fully Meets,10,10,1,0
+"Fidelia,  Libby",White,2012-01-09,NA,N/A - still employed,Active,Production,Production Technician I,24,Brannon Miller,Fully Meets,12,13,0,0
+"Garcia, Raul",White,2015-03-30,NA,N/A - still employed,Active,Production,Production Technician I,19,David Stanley,N/A- too early to review,7,6,1,0
+"Garneau, Hamish",Asian,2013-07-08,NA,N/A - still employed,Active,Production,Production Technician I,18,Kissy Sullivan,Fully Meets,9,8,0,0
+"Gaul, Barbara",Black or African American,2011-05-16,NA,N/A - still employed,Active,Production,Production Technician I,24,Kelley Spirea,Fully Meets,12,13,0,0
+"Gentry, Mildred",Black or African American,2015-03-30,NA,N/A - still employed,Active,Production,Production Technician I,19,Michael Albert,N/A- too early to review,5,8,2,0
+"Gerke, Melisa",White,2011-11-07,2011-11-15,hours,Voluntarily Terminated,Production,Production Technician I,22,Elijiah Gray,N/A- too early to review,5,7,1,0
+"Gilles, Alex",Black or African American,2012-04-02,2015-06-25,military,Voluntarily Terminated,Production,Production Technician I,15,Webster Butler,Needs Improvement,5,6,4,2
+"Girifalco, Evelyn",Two or more races,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician I,16,Amy Dunn,Exceeds,16,18,0,0
+"Gold, Shenice",White,2013-11-11,NA,N/A - still employed,Active,Production,Production Technician I,17,Ketsia Liebig,Fully Meets,13,12,1,0
+"Gonzalez, Cayo",American Indian or Alaska Native,2011-07-11,NA,N/A - still employed,Active,Production,Production Technician I,16,Brannon Miller,Exceeds,16,16,0,0
+"Gordon, David",White,2012-07-02,NA,N/A - still employed,Active,Production,Production Technician I,15,David Stanley,Fully Meets,14,15,0,0
+"Goyal, Roxana",Asian,2013-08-19,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,24,Kissy Sullivan,Fully Meets,11,10,0,0
+"Gross, Paula",White,2011-02-21,2014-01-11,more money,Voluntarily Terminated,Production,Production Technician I,14,Kelley Spirea,Fully Meets,9,10,0,0
+"Handschiegl, Joanne",White,2011-11-28,NA,N/A - still employed,Active,Production,Production Technician I,24,Michael Albert,Fully Meets,11,12,1,0
+"Harrell, Ludwick",Asian,2012-05-14,NA,N/A - still employed,Active,Production,Production Technician I,21,Elijiah Gray,Fully Meets,10,11,0,0
+"Harrington, Christie",White,2012-01-09,2015-12-15,retiring,Voluntarily Terminated,Production,Production Technician I,19.75,Webster Butler,Fully Meets,14,13,0,0
+"Harrison, Kara",White,2014-05-12,NA,N/A - still employed,Active,Production,Production Technician I,20,Amy Dunn,Exceeds,16,17,0,0
+"Heitzman, Anthony",White,2012-08-13,NA,N/A - still employed,Active,Production,Production Technician I,19,Ketsia Liebig,90-day meets,6,10,2,0
+"Ivey, Rose",White,2013-08-19,NA,N/A - still employed,Active,Production,Production Technician I,16,Brannon Miller,Fully Meets,12,15,2,0
+"Jackson, Maryellen",White,2012-11-05,NA,N/A - still employed,Active,Production,Production Technician I,20,David Stanley,Fully Meets,8,10,2,1
+"Jacobi, Hannah",White,2013-09-30,NA,N/A - still employed,Active,Production,Production Technician I,21,Kissy Sullivan,Fully Meets,11,12,1,0
+"Jhaveri, Sneha",White,2014-01-06,NA,N/A - still employed,Active,Production,Production Technician I,19,Kelley Spirea,Fully Meets,12,14,0,0
+"Johnson, George",White,2011-11-07,2016-04-29,more money,Voluntarily Terminated,Production,Production Technician I,17,Michael Albert,Exceeds,17,19,0,0
+"Jung, Judy",White,2011-01-10,2016-04-01,unhappy,Voluntarily Terminated,Production,Production Technician I,21,Elijiah Gray,90-day meets,7,9,3,0
+"Keatts, Kramer",White,2013-09-30,NA,N/A - still employed,Active,Production,Production Technician I,19,Michael Albert,Fully Meets,15,14,1,1
+"King, Janet",White,2012-07-02,NA,N/A - still employed,Active,Production,Production Technician I,23,Elijiah Gray,Fully Meets,9,10,1,1
+"Kinsella, Kathleen",White,2011-09-26,2015-06-04,more money,Voluntarily Terminated,Production,Production Technician I,22,Webster Butler,90-day meets,5,7,3,0
+"Kirill, Alexandra",White,2011-09-26,2012-01-09,more money,Voluntarily Terminated,Production,Production Technician I,24,Amy Dunn,Fully Meets,12,14,2,0
+"Knapp, Bradley  J",Black or African American,2014-02-17,NA,N/A - still employed,Active,Production,Production Technician I,14,Ketsia Liebig,Fully Meets,11,12,0,0
+"Kretschmer, John",Asian,2011-01-10,NA,N/A - still employed,Active,Production,Production Technician I,21,Brannon Miller,Fully Meets,14,13,0,0
+"Langton, Enrico",White,2012-07-09,NA,N/A - still employed,Active,Production,Production Technician I,17,David Stanley,Fully Meets,13,14,0,0
+"Leach, Dallas",Asian,2011-09-26,2013-08-19,return to school,Voluntarily Terminated,Production,Production Technician I,19,Kissy Sullivan,Fully Meets,12,12,1,0
+"LeBel, Jonathan  R",White,2011-02-21,2011-08-04,attendance,Terminated for Cause,Production,Production Technician I,15,Kelley Spirea,90-day meets,6,7,0,0
+"Linares, Marilyn",White,2011-07-05,2011-09-26,unhappy,Voluntarily Terminated,Production,Production Technician I,15.25,Michael Albert,N/A- too early to review,4,7,2,0
+"Lydon, Allison",Black or African American,2015-02-16,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,20,Elijiah Gray,90-day meets,6,10,1,0
+"Lynch, Lindsay",Two or more races,2011-11-07,2015-11-14,Another position,Voluntarily Terminated,Production,Production Technician I,19,Webster Butler,Exceeds,16,16,0,0
+"MacLennan, Samuel",White,2012-09-24,2012-09-26,hours,Voluntarily Terminated,Production,Production Technician I,15,Amy Dunn,N/A- too early to review,5,6,1,0
+"Mahoney, Lauren",White,2014-01-06,NA,N/A - still employed,Active,Production,Production Technician I,17,Ketsia Liebig,Fully Meets,9,10,1,0
+"Mangal, Debbie",White,2013-11-11,NA,N/A - still employed,Active,Production,Production Technician I,23,Brannon Miller,Fully Meets,9,10,1,0
+"Maurice, Shana",White,2011-05-31,NA,N/A - still employed,Active,Production,Production Technician I,20,David Stanley,90-day meets,8,8,4,0
+"Mckenna, Sandy",Black or African American,2013-01-07,NA,N/A - still employed,Active,Production,Production Technician I,24,Kissy Sullivan,Fully Meets,12,10,0,0
+"Meads, Elizabeth",Black or African American,2012-04-02,2015-11-11,Another position,Voluntarily Terminated,Production,Production Technician I,14,Kelley Spirea,Fully Meets,9,11,1,0
+"Medeiros, Jennifer",White,2015-03-30,NA,N/A - still employed,Active,Production,Production Technician I,20,Michael Albert,N/A- too early to review,6,6,1,1
+"Motlagh,  Dawn",White,2013-04-01,NA,N/A - still employed,Active,Production,Production Technician I,15,Elijiah Gray,Fully Meets,9,10,1,1
+"Ndzi, Colombui",Black or African American,2011-09-26,2014-04-04,return to school,Voluntarily Terminated,Production,Production Technician I,18,Webster Butler,Fully Meets,12,11,0,0
+"Ndzi, Horia",White,2013-04-01,2016-05-25,more money,Voluntarily Terminated,Production,Production Technician I,22,Amy Dunn,Fully Meets,9,12,1,0
+"Newman, Richard",White,2014-05-12,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,21,Ketsia Liebig,Fully Meets,11,10,1,0
+"Ngodup, Shari",Asian,2013-04-01,NA,N/A - still employed,Active,Production,Production Technician I,15,Brannon Miller,Exceeds,15,16,0,0
+"Nguyen, Lei-Ming",White,2013-07-08,NA,N/A - still employed,Active,Production,Production Technician I,19,David Stanley,Fully Meets,9,10,0,0
+"O'hare, Lynn",Two or more races,2014-03-31,2016-05-01,performance,Terminated for Cause,Production,Production Technician I,18.5,Kissy Sullivan,PIP,4,2,3,3
+"Osturnka, Adeel",White,2013-09-30,NA,N/A - still employed,Active,Production,Production Technician I,16,Kelley Spirea,Exceeds,16,16,0,0
+"Owad, Clinton",Black or African American,2014-02-17,NA,N/A - still employed,Active,Production,Production Technician I,22,Michael Albert,Needs Improvement,6,4,2,1
+"Panjwani, Nina",White,2011-02-07,2014-01-12,Another position,Voluntarily Terminated,Production,Production Technician I,18,Elijiah Gray,Fully Meets,11,10,0,0
+"Pelech, Emil",Black or African American,2011-01-10,2012-12-28,career change,Voluntarily Terminated,Production,Production Technician I,24,Webster Butler,Needs Improvement,5,4,2,1
+"Perry, Shakira",White,2011-05-16,2015-10-25,medical issues,Voluntarily Terminated,Production,Production Technician I,22,Amy Dunn,Fully Meets,14,14,0,0
+"Peterson, Kayla",White,2010-04-26,NA,N/A - still employed,Active,Production,Production Technician I,17,Ketsia Liebig,Fully Meets,10,9,0,0
+"Pham, Hong",White,2011-07-05,2012-11-30,more money,Voluntarily Terminated,Production,Production Technician I,18,Brannon Miller,Fully Meets,10,12,0,0
+"Pitt, Brad",Black or African American,2007-11-05,NA,N/A - still employed,Active,Production,Production Technician I,17,David Stanley,Fully Meets,5,7,3,1
+"Power, Morissa",Asian,2011-05-16,2011-06-04,Another position,Voluntarily Terminated,Production,Production Technician I,19,Kissy Sullivan,N/A- too early to review,12,12,2,0
+"Punjabhi, Louis",White,2014-01-06,NA,N/A - still employed,Active,Production,Production Technician I,16,Kelley Spirea,Fully Meets,8,9,1,0
+"Purinton, Janine",White,2012-09-24,2013-06-18,unhappy,Voluntarily Terminated,Production,Production Technician I,16,Kissy Sullivan,Fully Meets,9,10,0,0
+"Rarrick, Quinn",White,2011-09-26,2012-04-07,more money,Voluntarily Terminated,Production,Production Technician I,21,Michael Albert,Fully Meets,11,12,0,0
+"Rhoads, Thomas",White,2011-05-16,2016-01-15,retiring,Voluntarily Terminated,Production,Production Technician I,20,Elijiah Gray,Fully Meets,17,18,0,0
+"Rivera, Haley",Asian,2011-11-28,NA,N/A - still employed,Active,Production,Production Technician I,22,Webster Butler,Exceeds,13,13,0,0
+"Robinson, Alain",Black or African American,2011-01-10,2016-01-26,attendance,Voluntarily Terminated,Production,Production Technician I,24,Amy Dunn,Fully Meets,6,3,3,2
+"Robinson, Cherly",White,2011-01-10,2016-05-17,attendance,Terminated for Cause,Production,Production Technician I,16,Ketsia Liebig,Needs Improvement,17,19,0,0
+"Robinson, Elias",White,2013-07-08,NA,N/A - still employed,Active,Production,Production Technician I,17,Brannon Miller,Exceptional,10,13,1,0
+"Rose, Ashley",White,2014-01-06,NA,N/A - still employed,Active,Production,Production Technician I,17,David Stanley,Fully Meets,9,10,1,0
+"Rossetti, Bruno",White,2011-04-04,2012-08-13,Another position,Voluntarily Terminated,Production,Production Technician I,18,Kissy Sullivan,Fully Meets,5,6,2,0
+"Saar-Beckles, Melinda",Black or African American,2016-07-04,NA,N/A - Has not started yet,Future Start,Production,Production Technician I,20,Kelley Spirea,N/A- too early to review,14,13,1,0
+"Sadki, Nore",White,2009-01-05,2010-07-30,relocation out of area,Voluntarily Terminated,Production,Production Technician I,21,Michael Albert,Fully Meets,12,14,0,0
+"Sander, Kamrin",Black or African American,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician I,21,Elijiah Gray,Fully Meets,9,12,0,2
+"Sewkumar, Nori",Asian,2013-09-30,NA,N/A - still employed,Leave of Absence,Production,Production Technician I,15.2,Webster Butler,Fully Meets,12,12,0,0
+"Shields, Seffi",White,2013-08-19,NA,N/A - still employed,Active,Production,Production Technician I,15,Amy Dunn,Fully Meets,9,10,1,1
+"Smith, Sade",White,2013-11-11,NA,N/A - still employed,Active,Production,Production Technician I,24.5,Ketsia Liebig,Fully Meets,3,4,2,2
+"Sparks, Taylor",White,2012-02-20,NA,N/A - still employed,Active,Production,Production Technician I,16,Brannon Miller,PIP,16,15,0,0
+"Squatrito, Kristen",White,2013-05-13,2015-06-29,unhappy,Voluntarily Terminated,Production,Production Technician I,21,David Stanley,Exceeds,9,10,1,1
+"Stanford,Barbara  M",Two or more races,2011-01-10,NA,N/A - still employed,Active,Production,Production Technician I,14,Kissy Sullivan,Fully Meets,10,12,1,1
+"Stoica, Rick",Asian,2014-02-17,NA,N/A - still employed,Active,Production,Production Technician I,22,Kelley Spirea,Fully Meets,5,9,0,0
+"Sullivan, Timothy",White,2015-01-05,NA,N/A - still employed,Active,Production,Production Technician I,19,Michael Albert,90-day meets,14,14,0,0
+"Sutwell, Barbara",Asian,2012-05-14,NA,N/A - still employed,Active,Production,Production Technician I,14,Elijiah Gray,Fully Meets,10,12,2,0
+"Tavares, Desiree",Two or more races,2009-04-27,2013-04-01,Another position,Voluntarily Terminated,Production,Production Technician I,15,Webster Butler,Fully Meets,6,7,2,0
+"Theamstern, Sophia",White,2011-07-05,2011-09-05,return to school,Voluntarily Terminated,Production,Production Technician I,20,Amy Dunn,N/A- too early to review,5,9,1,0
+"Tinto, Theresa",White,2011-01-10,2011-05-14,Another position,Voluntarily Terminated,Production,Production Technician I,20,Ketsia Liebig,90-day meets,8,9,2,1
+"Tippett, Jeanette",Black or African American,2013-02-18,NA,N/A - still employed,Active,Production,Production Technician I,24,Brannon Miller,Fully Meets,4,7,3,0
+"Trang, Mei",White,2014-02-17,NA,N/A - still employed,Active,Production,Production Technician I,22,David Stanley,N/A- too early to review,15,16,0,0
+"Veera, Abdellah",White,2012-08-13,2016-02-05,maternity leave - did not return,Voluntarily Terminated,Production,Production Technician I,19,Kissy Sullivan,Exceeds,16,15,0,0
+"Volk, Colleen",White,2011-09-26,2016-02-08,gross misconduct,Terminated for Cause,Production,Production Technician I,21,Kelley Spirea,Exceeds,5,5,1,0
+"Von Massenbach, Anna",White,2015-07-05,NA,N/A - Has not started yet,Future Start,Production,Production Technician I,20,Michael Albert,N/A- too early to review,7,9,3,4
+"Wallace, Theresa",White,2012-08-13,2015-09-01,career change,Voluntarily Terminated,Production,Production Technician I,15,Elijiah Gray,Needs Improvement,7,8,4,1
+"Whittier, Scott",White,2011-01-10,2011-05-15,hours,Voluntarily Terminated,Production,Production Technician I,23,Webster Butler,90-day meets,14,13,0,0
+"Wilber, Barry",White,2011-05-16,2015-09-07,unhappy,Voluntarily Terminated,Production,Production Technician I,21,Amy Dunn,Fully Meets,9,12,1,0
+"Williams, Jacquelyn",Two or more races,2012-01-09,2015-06-27,relocation out of area,Voluntarily Terminated,Production,Production Technician I,16,Ketsia Liebig,Fully Meets,3,5,2,2
+"Ybarra, Catherine",Asian,2008-09-02,2015-09-29,Another position,Voluntarily Terminated,Production,Production Technician I,22,Brannon Miller,PIP,10,10,0,0
+"Zima, Colleen",Asian,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician I,15,David Stanley,Fully Meets,9,10,2,0
+"Akinkuolie, Sarah",White,2011-07-05,2012-09-24,hours,Voluntarily Terminated,Production,Production Technician II,29,Kissy Sullivan,90-day meets,17,17,0,0
+"Beak, Kimberly",White,2016-07-21,NA,N/A - Has not started yet,Future Start,Production,Production Technician II,27,Kelley Spirea,Exceeds,6,5,2,2
+"Blount, Dianna",White,2011-04-04,NA,N/A - still employed,Active,Production,Production Technician II,27,Michael Albert,Needs Improvement,6,11,1,1
+"Bondwell, Betsy",White,2011-01-10,2014-04-04,career change,Voluntarily Terminated,Production,Production Technician II,26,Elijiah Gray,90-day meets,15,16,0,1
+"Buccheri, Joseph",White,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician II,22,Webster Butler,Fully Meets,9,10,1,0
+"Burke, Joelle",Black or African American,2012-03-05,NA,N/A - still employed,Active,Production,Production Technician II,25,Amy Dunn,Fully Meets,10,10,1,1
+"Burkett, Benjamin",White,2011-04-04,NA,N/A - still employed,Active,Production,Production Technician II,26,Ketsia Liebig,Fully Meets,7,8,0,1
+"Cloninger, Jennifer",White,2011-05-16,2013-01-07,unhappy,Voluntarily Terminated,Production,Production Technician II,25,Brannon Miller,90-day meets,9,10,1,0
+"Close, Phil",White,2010-08-30,2011-09-26,career change,Voluntarily Terminated,Production,Production Technician II,26,David Stanley,Fully Meets,5,7,3,0
+"Davis, Daniel",Two or more races,2011-11-07,NA,N/A - still employed,Active,Production,Production Technician II,25,Kissy Sullivan,90-day meets,14,15,1,0
+"Demita, Carla",Black or African American,2011-04-04,2015-11-04,more money,Voluntarily Terminated,Production,Production Technician II,29,Kelley Spirea,Fully Meets,4,5,3,3
+"Erilus, Angela",White,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician II,24,Michael Albert,PIP,13,13,1,0
+"Faller, Megan",Black or African American,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician II,27,Elijiah Gray,Fully Meets,15,18,0,0
+"Fancett, Nicole",Black or African American,2014-02-17,NA,N/A - still employed,Active,Production,Production Technician II,24,Webster Butler,Fully Meets,15,14,0,0
+"Fitzpatrick, Michael  J",White,2011-05-16,2013-06-24,hours,Voluntarily Terminated,Production,Production Technician II,29,Amy Dunn,Fully Meets,14,14,0,0
+"Foreman, Tanya",White,2011-04-04,2012-01-09,career change,Voluntarily Terminated,Production,Production Technician II,24,Ketsia Liebig,Fully Meets,3,1,3,3
+"Gonzalez, Juan",Black or African American,2010-04-26,2011-05-30,career change,Voluntarily Terminated,Production,Production Technician II,29,Brannon Miller,PIP,12,10,1,0
+"Good, Susan",White,2014-05-12,NA,N/A - still employed,Leave of Absence,Production,Production Technician II,24.25,David Stanley,Fully Meets,14,15,1,1
+"Gosciminski, Phylicia",American Indian or Alaska Native,2013-09-30,NA,N/A - still employed,Leave of Absence,Production,Production Technician II,27,Kissy Sullivan,Fully Meets,12,12,1,0
+"Hankard, Earnest",White,2013-11-11,NA,N/A - still employed,Active,Production,Production Technician II,24,Kelley Spirea,Fully Meets,15,16,0,0
+"Hendrickson, Trina",White,2011-01-10,2013-02-18,hours,Voluntarily Terminated,Production,Production Technician II,24,Kelley Spirea,Fully Meets,14,15,0,0
+"Homberger, Adrienne  J",White,2011-08-15,2012-04-07,relocation out of area,Voluntarily Terminated,Production,Production Technician II,28,Michael Albert,Fully Meets,5,6,2,1
+"Hunts, Julissa",White,2016-06-06,NA,N/A - Has not started yet,Future Start,Production,Production Technician II,25,Elijiah Gray,N/A- too early to review,10,10,2,0
+"Hutter, Rosalie",White,2015-06-05,NA,N/A - Has not started yet,Future Start,Production,Production Technician II,28,Webster Butler,N/A- too early to review,11,10,0,0
+"Huynh, Ming",White,2011-02-21,2013-04-01,unhappy,Voluntarily Terminated,Production,Production Technician II,23,Amy Dunn,Fully Meets,16,17,0,0
+"Jeannite, Tayana",American Indian or Alaska Native,2011-07-05,NA,N/A - still employed,Active,Production,Production Technician II,22.5,Ketsia Liebig,Exceeds,19,17,0,0
+"Johnston, Yen",White,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician II,25,Brannon Miller,Exceptional,11,10,0,0
+"Langford, Lindsey",Asian,2013-01-07,2014-03-31,Another position,Voluntarily Terminated,Production,Production Technician II,22,David Stanley,Fully Meets,15,15,1,0
+"Latif, Mohammed",White,2012-04-02,2013-04-15,more money,Voluntarily Terminated,Production,Production Technician II,28,Kissy Sullivan,Fully Meets,15,14,1,0
+"Linden, Mathew",White,2013-07-08,NA,N/A - still employed,Leave of Absence,Production,Production Technician II,22,Kelley Spirea,Fully Meets,5,7,2,1
+"Lundy, Susan",White,2013-07-08,2013-09-15,more money,Voluntarily Terminated,Production,Production Technician II,24,Michael Albert,N/A- too early to review,18,16,0,0
+"Lunquist, Lisa",Black or African American,2013-08-19,NA,N/A - still employed,Active,Production,Production Technician II,26.1,Elijiah Gray,Exceeds,8,8,4,0
+"Manchester, Robyn",White,2016-05-11,NA,N/A - Has not started yet,Future Start,Production,Production Technician II,23,Webster Butler,N/A- too early to review,6,5,1,0
+"Mancuso, Karen",Two or more races,2011-07-05,2011-08-19,Another position,Voluntarily Terminated,Production,Production Technician II,23,Amy Dunn,N/A- too early to review,5,5,1,0
+"McCarthy, Brigit",White,2015-03-30,NA,N/A - still employed,Active,Production,Production Technician II,26,Ketsia Liebig,N/A- too early to review,4,4,2,2
+"Miller, Ned",White,2011-08-15,2014-09-04,unhappy,Voluntarily Terminated,Production,Production Technician II,25,Brannon Miller,PIP,15,14,1,0
+"Monkfish, Erasumus",White,2011-11-07,NA,N/A - still employed,Active,Production,Production Technician II,27,David Stanley,Fully Meets,17,18,0,0
+"Monterro, Luisa",Black or African American,2013-05-13,NA,N/A - still employed,Active,Production,Production Technician II,25,Kissy Sullivan,Exceptional,10,12,1,1
+"Moran, Patrick",Hispanic,2012-01-09,NA,N/A - still employed,Leave of Absence,Production,Production Technician II,26,Kelley Spirea,Fully Meets,10,12,1,0
+"Moumanil, Maliki",Black or African American,2013-05-13,NA,N/A - still employed,Active,Production,Production Technician II,29,Michael Albert,Fully Meets,10,10,0,1
+"Nowlan, Kristie",White,2014-11-10,NA,N/A - still employed,Active,Production,Production Technician II,26.39,Elijiah Gray,Fully Meets,6,7,3,0
+"Oliver, Brooke",Asian,2012-05-14,2013-08-19,unhappy,Voluntarily Terminated,Production,Production Technician II,25,Webster Butler,90-day meets,6,7,4,0
+"Pelletier, Ermine",Asian,2011-07-05,2011-09-15,unhappy,Voluntarily Terminated,Production,Production Technician II,28,Amy Dunn,N/A- too early to review,17,18,0,0
+"Peters, Lauren",White,2011-05-16,2012-02-04,more money,Voluntarily Terminated,Production,Production Technician II,29,Ketsia Liebig,Exceeds,9,10,0,0
+"Petingill, Shana",Asian,2012-04-02,NA,N/A - still employed,Active,Production,Production Technician II,26,Brannon Miller,Fully Meets,4,6,2,1
+"Roberson, May",White,2011-09-26,2011-10-22,return to school,Voluntarily Terminated,Production,Production Technician II,26,David Stanley,N/A- too early to review,12,12,0,0
+"Robertson, Peter",White,2011-07-05,2012-02-08,Another position,Voluntarily Terminated,Production,Production Technician II,22,Kissy Sullivan,Fully Meets,11,10,0,0
+"Sahoo, Adil",White,2010-08-30,NA,N/A - still employed,Active,Production,Production Technician II,29,Kelley Spirea,Fully Meets,14,17,0,0
+"Sloan, Constance",White,2009-10-26,2015-04-08,maternity leave - did not return,Voluntarily Terminated,Production,Production Technician II,23,Michael Albert,Fully Meets,16,16,0,0
+"Smith, Joe",White,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician II,22,Elijiah Gray,Exceeds,12,18,0,0
+"Sweetwater, Alex",White,2011-08-15,NA,N/A - still employed,Active,Production,Production Technician II,27,Michael Albert,Fully Meets,9,10,0,0
+"Tejeda, Lenora",White,2011-05-16,2012-07-08,Another position,Voluntarily Terminated,Production,Production Technician II,28.75,Elijiah Gray,Fully Meets,12,12,1,0
+"Thibaud, Kenneth",White,2007-06-25,2010-08-30,military,Voluntarily Terminated,Production,Production Technician II,23,Webster Butler,Fully Meets,12,13,1,0
+"Trzeciak, Cybil",White,2011-01-10,2012-07-02,unhappy,Voluntarily Terminated,Production,Production Technician II,22,Amy Dunn,Fully Meets,12,14,0,1
+"Walker, Roger",Black or African American,2014-08-18,NA,N/A - still employed,Active,Production,Production Technician II,22,Ketsia Liebig,Fully Meets,18,17,0,0
+"Winthrop, Jordan",White,2013-01-07,2016-02-21,retiring,Voluntarily Terminated,Production,Production Technician II,29,Brannon Miller,Exceeds,12,11,0,0
+"Wolk, Hang  T",White,2014-09-29,NA,N/A - still employed,Active,Production,Production Technician II,22,David Stanley,Fully Meets,12,17,0,0
+"Woodson, Jason",White,2014-07-07,NA,N/A - still employed,Active,Production,Production Technician II,24.25,Kissy Sullivan,Fully Meets,15,13,0,0

@@ -1,0 +1,148 @@
+---
+title: "Agregar y resumir"
+subtitle: "HR Analytics: Teoría y Práctica"
+author: "http://pablohaya.com/contact"
+date: "09/2018"
+output:
+  beamer_presentation: default
+  ioslides_presentation: default
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Preparación
+
+Leemos el conjunto de datos que ya habíamos limpiado anteriormente.
+
+```{r}
+library(here)
+library(tidyverse)
+load(here("data","join_dataset_clean.RData"))
+head(df)
+```
+
+## Agregando
+
+La función `summarise()` agrega todos los valores de una columna según la función que indiquemos generando una nueva tabla.
+
+```{r}
+df %>% summarise(mean(PayRate))
+```
+
+---
+
+Es posible incluir más de un función para realizar distintos resumenes. 
+
+```{r}
+df %>% summarise(mean(PayRate), 
+                 median(PayRate), 
+                 var(PayRate))
+```
+
+---
+
+o incluir dos o más variables distintas en el resumen.
+
+```{r}
+df %>% summarise(mean(PayRate), mean(Age))
+```
+
+---
+
+También es posible personalizar el nombre de las columnas de la nueva tabla.
+
+```{r}
+df %>% summarise(media=mean(PayRate), 
+                 mediana=median(PayRate), 
+                 var=var(PayRate))
+```
+
+## Group by
+
+La función `group_by()` permite crear grupos sobre los que realizar la agregación. Aparentemente no modifica la tabla aunque internamente queda preparada para las siguentes operaciones.
+
+```{r echo=TRUE}
+by_sex <- df %>% group_by(Sex)
+by_sex
+```
+
+## Agregando por grupos
+
+La función `summarise()` realiza la operación indicada para cada uno de los grupos especificados por `group_by()`. El resultado es una tabla que resume los resultados en cada fila para cada uno de los grupos.
+
+```{r echo=TRUE}
+df %>% group_by(Sex) %>%
+       summarise(PayRate = mean(PayRate))
+```
+
+---
+
+Tal como hemos visto es posible incluir más de una función y/o columna sobre los que realizar el resumen. 
+
+```{r echo=TRUE}
+df %>% group_by(Sex) %>%
+       summarise(PayRate = mean(PayRate), Age = mean(Age))
+```
+
+## Contar el número de elementos en un grupo
+
+La función `n()` permite contar el número de elementos por cada grupo. 
+
+```{r echo=TRUE}
+df %>% group_by(Sex) %>%
+       summarise(count = n())
+```
+
+---
+
+Incluyendo más de una variable en la función `group_by()` se realizan las agrupaciones para todas las combinaciones posibles de valores.
+
+```{r echo=TRUE}
+df %>% group_by(Sex, Age) %>%
+       summarise(count = n())
+```
+
+## Resumir el pasado (Window Functions)
+
+`tidyverse` incluye varias funciones que permiten resumir empleando los valores pasados (`cumsum()`, `cummean()`, `lag()`, `lead()`...). 
+
+Vamos a calcular la plantilla para cada año, y el crecimiento respecto al año anterior. Primeramente calculamos el número de contratados acumulado año a año.
+
+```{r echo=TRUE}
+df_c <- df %>% group_by(year=format(DateofHire, "%Y")) %>%
+            summarise(count = n()) %>%
+            mutate(contratacion=cumsum(count)) %>%
+            select(year, contratacion)
+df_c
+```
+
+---
+
+A continuación, calculamos el acumulado del número de bajas.
+
+```{r echo=TRUE}
+df_e <- df %>% group_by(year=format(DateofTermination, "%Y")) %>%
+               summarise(count = n()) %>%
+               mutate(despidos=cumsum(count)) %>%
+               filter(!is.na(year)) %>%
+               select(year, despidos)
+df_e
+```
+
+---
+
+Finalmente, juntamos las dos tablas anteriores, calculamos la plantilla para cada año, y el crecimiento. 
+
+```{r echo=TRUE}
+library(scales)
+df_c %>% 
+    full_join(df_e, by="year") %>% 
+    mutate(despidos=ifelse(is.na(despidos), 0, despidos)) %>%
+    mutate(plantilla=contratacion-despidos) %>%
+    mutate(plantilla_1=lag(plantilla)) %>%
+    mutate(crecimiento=(plantilla-plantilla_1)/plantilla) %>%
+    mutate(crecimiento=percent(crecimiento)) %>%
+    select(year, plantilla, crecimiento)
+```
