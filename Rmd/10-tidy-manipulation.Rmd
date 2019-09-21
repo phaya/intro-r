@@ -116,8 +116,6 @@ Este conjunto tiene que compartir al menos una columna con la tabla queremos com
 df_pr <- read_csv(here("data", "production_staff.csv"))
 colnames(df_pr) <- str_replace_all(colnames(df_pr), "[ /-]", "")
 colnames(df_pr)
-df_pr$Pay <- as.numeric(str_replace(df_pr$Pay,"\\$",""))
-write_csv(df_pr,  here("data","production_staff_clean.csv"))
 ```
 
 ---
